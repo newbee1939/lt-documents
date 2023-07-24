@@ -1,2 +1,7 @@
 # lt-documents
-LT用のドキュメント・発表資料
+
+LT 用のドキュメント・発表資料
+
+## require
+
+- Marp for VS Code
