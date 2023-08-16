@@ -48,6 +48,12 @@ _paginate: false
 
 ---
 
+# つまり
+
+なんでもできる
+
+---
+
 # 実際に触ってみた
 
 ## インストール
@@ -84,7 +90,7 @@ SET
 
 author テーブルとテーブルに含まれるレコードを作成する。
 
-id を指定することも可能。（author:taro）
+id を指定することも可能。（author:taro）（ターブル名:任意の値）
 
 ```sql
 CREATE author:taro
@@ -104,7 +110,8 @@ SET
 ---
 
 先ほど作った著者とアカウントを記事に関連させる。
-下記の例では著者のテーブル名を含んだレコード ID を直接指定（レコードリンク） している
+下記の例では著者のテーブル名を含んだレコード ID を直接指定（レコードリンク） している。
+リレーションの設定とかは不要。
 
 ```sql
 CREATE article
@@ -155,7 +162,7 @@ SurrealDB では、RELATE 文を使うことで、 JOIN を使用することな
 
 ---
 
-メールを表すレコードを追加し、そのメールが著者に送られたことを表現する Graph Edges を追加する。
+メールを表すレコードを追加し、そのメールが著者に送られたことを表現する RELATE を追加する。
 
 ```sql
 CREATE email:hoge
@@ -186,6 +193,7 @@ CONTENT {
 ---
 
 Jiro からのメールを開いていない受信者でかつ管理者を全て取得する。
+わざわざ JOIN とかをする必要はない。
 
 ```sql
 SELECT ->send->(email as email)->(to WHERE opened = false)->(author WHERE admin = true as receiver)
