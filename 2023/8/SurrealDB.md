@@ -150,7 +150,7 @@ SET
 
 さらに別の著者を追加し、このメールの送信者であることを表現する。
 
-```
+```sql
 CREATE author:jiro
 CONTENT {
   name: { first: 'Jiro', last: 'Maeda' }
