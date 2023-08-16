@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: gaia
-footer: "2023/08/16 DB勉強会"
+footer: "2023/08/16 データベースLT会"
 size: 16:9
 paginate: true
 ---
@@ -76,7 +76,15 @@ SET
 
 ---
 
+任意の id が登録される。
+
+![w:1130](1.png)
+
+---
+
 author テーブルとテーブルに含まれるレコードを作成する。
+
+id を指定することも可能。（author:taro）
 
 ```sql
 CREATE author:taro
@@ -88,6 +96,10 @@ SET
   admin = true
 ;
 ```
+
+---
+
+![w:1000](2.png)
 
 ---
 
@@ -115,11 +127,21 @@ article を取得する。
 SELECT * FROM article;
 ```
 
+---
+
+![w:1000](3.png)
+
+---
+
 複数のテーブルから同時にレコードを取得することも可能。
 
 ```sql
 SELECT * FROM article, author, account;
 ```
+
+---
+
+![w:1000](4.png)
 
 ---
 
@@ -172,6 +194,10 @@ FROM author:jiro FETCH email, receiver;
 
 ---
 
+![w:1000](5.png)
+
+---
+
 # 感想
 
 - SurrealQL が扱いやすく複雑なリレーション関係の定義はしやすい
@@ -181,3 +207,4 @@ FROM author:jiro FETCH email, receiver;
   - GCP へのデプロイはできない
   - GraphQL はまだ扱えない
 - 何でもできるから逆に使いどころが分かりづらい
+- 動向は追っておきたい
