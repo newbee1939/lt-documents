@@ -1,12 +1,11 @@
 ---
 marp: true
-# カスタムテーマがうまく読み込めない..
-# theme: sample1
 theme: gaia
-style: sample1.css
-# theme: uncover
+# style: |
+#   section h1 {
+#     font-size: 100px;
+#   }
 footer: "2023/07/24 Sample勉強会"
-# size: 4:3
 size: 16:9
 paginate: true
 ---
