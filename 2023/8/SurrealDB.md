@@ -1,8 +1,7 @@
 ---
 marp: true
 theme: gaia
-footer: "2023/08/16 データベースLT会"
-size: 16:9
+footer: "2023/8/18 データベースLT会"
 paginate: true
 ---
 
@@ -23,7 +22,7 @@ _paginate: false
 - 2022 年に登場した Rust 製のデータベース
 - [史上最強のデータベース](https://qiita.com/silane1001/items/795c3539675e588c2c4d)らしい
 
-![w:700](qiita.png)
+![w:900](qiita.png)
 
 ---
 
@@ -34,15 +33,8 @@ _paginate: false
 - HTTP、WebSocket、(GraphQL)など様々なアクセス方法に対応
 - ユーザ認証、認可機能とが DB 本体に内包
 - ブラウザから直に接続する WebDB としても使える
-
----
-
-# 特徴
-
 - SurrealQL という高機能な SQL に似た言語を採用
-  - 複雑なリレーションを JOIN を使うのではなく、レコードリンクを使用
-    - 複雑なリレーション関係を SQL より簡潔に記述できる
-- JS の独自のロジックを埋め込んで柔軟にクエリすることもできる
+  - リレーションを簡単に定義できる
 
 ---
 
@@ -68,7 +60,7 @@ $ docker run --rm --pull always -p 8000:8000 surrealdb/surrealdb:latest start --
 
 ## レコードの追加
 
-account テーブルの一つのテーブルと一つのレコードを作成。
+account テーブルとそのレコードを作成。
 
 ```sql
 CREATE account
@@ -110,8 +102,7 @@ SET
 
 著者(author)とアカウント(account)を記事(article)に関連させる。
 
-下記の例では author のレコード ID を直接指定している。（レコードリンク）
-リレーションの設定とかは不要。
+author のところに先ほどの id（author:taro）を指定することでリレーションを設定。（レコードリンク）
 
 ```sql
 CREATE article
@@ -136,7 +127,7 @@ SELECT * FROM article;
 
 ---
 
-![w:1000](3.png)
+![w:950](3.png)
 
 ---
 
@@ -148,13 +139,13 @@ SELECT * FROM article, author, account;
 
 ---
 
-![w:1000](4.png)
+![w:900](4.png)
 
 ---
 
 SurrealQL の特徴の一つにリレーションを辿るのが非常に簡単という点がある。
 
-RELATE 文を使うことで、 JOIN を使用することなく関連するレコードを習得することができる。
+RELATE 文を使うことで、 JOIN を使用することなくアローを使って関連するレコードを習得することができる。
 
 参考: https://surrealdb.com/docs/surrealql/statements/relate
 
@@ -206,11 +197,10 @@ FROM author:jiro FETCH email, receiver;
 # 感想
 
 - SurrealQL が扱いやすく複雑なリレーション関係の定義はしやすい
-  - JOIN を使って複雑なクエリを書く必要がない
 - Rust 製なのでパフォーマンス面（多分）良さそう
-- ただ、まだまだ開発途中
-  - GCP へのデプロイはできない
-  - GraphQL はまだ扱えない
+- 開発途中
+  - GCP で使えない
+  - GraphQL 使えない
 - 何でもできるから逆に使いどころが分かりづらい
 - とても可能性がある DB だと思うので動向は追っていきたい
 
