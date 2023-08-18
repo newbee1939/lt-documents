@@ -20,10 +20,8 @@ _paginate: false
 
 # SurrealDB とは？
 
-- 最近登場した Rust 製のデータベース
-- Surreal(現実離れした)DB
+- 2022 年に登場した Rust 製のデータベース
 - [史上最強のデータベース](https://qiita.com/silane1001/items/795c3539675e588c2c4d)らしい
-- とにかくなんでもできる夢のデータベース
 
 ![w:700](qiita.png)
 
@@ -42,8 +40,8 @@ _paginate: false
 # 特徴
 
 - SurrealQL という高機能な SQL に似た言語を採用
-- 複雑なリレーションを JOIN を使うのではなく、Record Links を使用
-  - 複雑なリレーション関係を SQL より簡潔に記述できる
+  - 複雑なリレーションを JOIN を使うのではなく、レコードリンクを使用
+    - 複雑なリレーション関係を SQL より簡潔に記述できる
 - JS の独自のロジックを埋め込んで柔軟にクエリすることもできる
 
 ---
@@ -83,6 +81,7 @@ SET
 ---
 
 任意の id が登録される。
+この id を使ってリレーション関係を指定したりする。
 
 ![w:1130](1.png)
 
@@ -105,12 +104,13 @@ SET
 
 ---
 
-![w:1000](2.png)
+![w:1100](2.png)
 
 ---
 
-先ほど作った著者とアカウントを記事に関連させる。
-下記の例では著者のテーブル名を含んだレコード ID を直接指定（レコードリンク） している。
+著者(author)とアカウント(account)を記事(article)に関連させる。
+
+下記の例では author のレコード ID を直接指定している。（レコードリンク）
 リレーションの設定とかは不要。
 
 ```sql
@@ -152,17 +152,15 @@ SELECT * FROM article, author, account;
 
 ---
 
-## グラフ
-
 SurrealQL の特徴の一つにリレーションを辿るのが非常に簡単という点がある。
 
-SurrealDB では、RELATE 文を使うことで、 JOIN を使用することなく関連するレコードを効率的に習得することができる。
+RELATE 文を使うことで、 JOIN を使用することなく関連するレコードを習得することができる。
 
 参考: https://surrealdb.com/docs/surrealql/statements/relate
 
 ---
 
-メールを表すレコードを追加し、そのメールが著者に送られたことを表現する RELATE を追加する。
+メールを表すレコードを追加し、そのメールが著者(author)に送られたことを表現する RELATE を追加する。
 
 ```sql
 CREATE email:hoge
@@ -192,8 +190,7 @@ CONTENT {
 
 ---
 
-Jiro からのメールを開いていない受信者でかつ管理者を全て取得する。
-わざわざ JOIN とかをする必要はない。
+JOIN することなく、アローを使って必要なデータ（author からのメールを開いていない受信者でかつ管理者）を取得できる。
 
 ```sql
 SELECT ->send->(email as email)->(to WHERE opened = false)->(author WHERE admin = true as receiver)
@@ -210,9 +207,17 @@ FROM author:jiro FETCH email, receiver;
 
 - SurrealQL が扱いやすく複雑なリレーション関係の定義はしやすい
   - JOIN を使って複雑なクエリを書く必要がない
-- Rust 製なのでパフォーマンス面は良さそう
+- Rust 製なのでパフォーマンス面（多分）良さそう
 - ただ、まだまだ開発途中
   - GCP へのデプロイはできない
   - GraphQL はまだ扱えない
 - 何でもできるから逆に使いどころが分かりづらい
-- 動向は追っておきたい
+- とても可能性がある DB だと思うので動向は追っていきたい
+
+---
+
+<!--
+backgroundColor: black
+paginate: false
+footer: ""
+-->
