@@ -123,16 +123,56 @@ describe("getResult", () => {
 
 ---
 
+```ts:sample.ts
+import { getResult } from "./sample";
+
+describe("getResult", () => {
+  test("3の倍数でも5の倍数でもあるとき0を返す", () => {
+    const result = getResult(15);
+    expect(result).toBe("0");
+  });
+
+  test("3の倍数でも5の倍数でもあるとき1を返す", () => {
+    const result = getResult(25);
+    expect(result).toBe("1");
+  });
+
+  test("3の倍数でも5の倍数でもあるとき2を返す", () => {
+    const result = getResult(48);
+    expect(result).toBe("2");
+  });
+
+  test("3の倍数でも5の倍数でもあるとき3を返す", () => {
+    const result = getResult(112);
+    expect(result).toBe("3");
+  });
+});
+```
+
+---
+
 ## ![w:1150](result2.png)
 
 ---
 
-# おすすめの資料
+<!--
+_footer: ""
+_paginate: false
+-->
+
+ベストプラクティスを学ぶなら
+
+## ![w:900](link.png)
+
+参考: [javascript-testing-best-practices](https://github.com/goldbergyoni/javascript-testing-best-practices)
 
 ---
 
 # まとめ
 
--
+- Jest は JavaScript(TypeScript)の testing library
+- テスティングフレームワークにはｘ Unit と Spec 系がある
+- Jest は Spec 系
+- describe を使って階層構造を表現できる
 - 若干書き方は違うが、テストケースの考え方自体は PHPUnit と変わらない
-  - 多分すぐ慣れる
+  - すぐ慣れると思う
