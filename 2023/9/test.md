@@ -26,6 +26,7 @@ _paginate: false
 ---
 
 - JavaScript のテスティングフレームワークの中だと一番人気
+- リアーキでも使っている
 
 ![w:1160](trend.png)
 
@@ -66,19 +67,72 @@ _paginate: false
 
 # サンプルコード
 
+```ts:sample.ts
+export const getResult = (value: number): string => {
+  if (value % 15 === 0) {
+    return "0";
+  } else if (value % 5 === 0) {
+    return "1";
+  } else if (value % 3 === 0) {
+    return "2";
+  } else {
+    return "3";
+  }
+};
+```
+
 ---
 
-# 実際のコード
+```ts:sample.spec.ts
+import { getResult } from "./sample";
+
+describe("getResult", () => {
+  describe("3の倍数でも5の倍数でもあるとき", () => {
+    test("0を返す", () => {
+      const result = getResult(15);
+      expect(result).toBe("0");
+    });
+  });
+
+  describe("5の倍数のとき", () => {
+    test("1を返す", () => {
+      const result = getResult(25);
+      expect(result).toBe("1");
+    });
+  });
+
+  describe("3の倍数のとき", () => {
+    test("2を返す", () => {
+      const result = getResult(48);
+      expect(result).toBe("2");
+    });
+  });
+
+  describe("それ以外のとき", () => {
+    test("3を返す", () => {
+      const result = getResult(112);
+      expect(result).toBe("3");
+    });
+  });
+});
+```
 
 ---
 
-# オススメの資料
+## ![w:1150](testresult.png)
 
 ---
 
-# 終わりに
+## ![w:1150](result2.png)
 
+---
+
+# おすすめの資料
+
+---
+
+# まとめ
+
+-
 - 若干書き方は違うが、テストケースの考え方自体は PHPUnit と変わらない
   - 多分すぐ慣れる
-
-これによりテスト自体の可読性が向上するのはもちろんのこと、以下のようにテストのログも見やすくなる。（テストがよりドキュメント・仕様書としての役割を果たしやすくなる）
