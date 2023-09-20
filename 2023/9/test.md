@@ -21,7 +21,7 @@ _paginate: false
 - Jest = JavaScript(TypeScript)の testing library
 - PHP で言うと PHPUnit のようなもの
 
-![w:400](jest.png)
+![w:500](jest.png)
 
 ---
 
@@ -42,7 +42,7 @@ _footer: ""
 _paginate: false
 -->
 
-# xUnit? Spec?
+# xUnit? Spec 系?
 
 - テスティングフレームワークは 2 系統に分かれる
   - ｘ Unit と Spec 系
@@ -51,7 +51,7 @@ _paginate: false
 - Spec 系
   - Jest(JavaScript),RSpec(Ruby)
   - テストケースの記述にフォーマットが決まっている。given/when/then
-  - describe を使って階層構造を表現する
+  - describe を使って階層構造を表現できる
 
 参考: [【ソフトウェアテスト】xUnit と Spec 系の比較](https://kzono.hatenablog.com/entry/2018/01/07/091428)
 
@@ -175,4 +175,4 @@ _paginate: false
 - Jest は Spec 系
 - describe を使って階層構造を表現できる
 - 若干書き方は違うが、テストケースの考え方自体は PHPUnit と変わらない
-  - すぐ慣れると思う
+  - 多分すぐに慣れると思う
