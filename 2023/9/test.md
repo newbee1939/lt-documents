@@ -53,7 +53,7 @@ _paginate: false
   - Jest(JavaScript), RSpec(Ruby)
   - テストケースは自然言語や DSL で記述
   - describe を使って階層構造を表現できる
-  - ドキュメンテーションとしても役立つ
+    - ドキュメンテーションとしても役立つ
 
 ---
 
