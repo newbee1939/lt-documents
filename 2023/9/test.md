@@ -1,6 +1,5 @@
 ---
 marp: true
-theme: gaia
 footer: "2023/09/22 テストLT会"
 size: 16:9
 paginate: true
@@ -18,7 +17,7 @@ _paginate: false
 
 # Jest とは何か？
 
-- Jest = JavaScript(TypeScript)の testing library
+- Jest = JavaScript(TypeScript)の Testing Library
 - PHP で言うと PHPUnit のようなもの
 
 ![w:500](jest.png)
@@ -28,7 +27,7 @@ _paginate: false
 - JavaScript のテスティングフレームワークの中だと一番人気
 - リアーキでも使っている
 
-![w:1160](trend.png)
+![w:1170](trend.png)
 
 ---
 
@@ -45,19 +44,20 @@ _paginate: false
 # xUnit? Spec 系?
 
 - テスティングフレームワークは 2 系統に分かれる
-  - ｘ Unit と Spec 系
+  - ｘ Unit 系 と Spec 系
 - x Unit
-  - JUnit(Java),PHPUnit(PHP)
+  - JUnit(Java), PHPUnit(PHP)
+  - テストケースはクラスやメソッドで表現
+  - アサーションで条件確認
 - Spec 系
-  - Jest(JavaScript),RSpec(Ruby)
-  - テストケースの記述にフォーマットが決まっている。given/when/then
+  - Jest(JavaScript), RSpec(Ruby)
+  - テストケースは自然言語や DSL で記述
   - describe を使って階層構造を表現できる
-
-参考: [【ソフトウェアテスト】xUnit と Spec 系の比較](https://kzono.hatenablog.com/entry/2018/01/07/091428)
+  - ドキュメンテーションとしても役立つ
 
 ---
 
-# Jest でテストを書く
+# Jest でテストを書く流れ
 
 - ファイル名は 〇〇.spec.js
 - describe にテストの条件を記述
@@ -170,9 +170,16 @@ _paginate: false
 
 # まとめ
 
-- Jest は JavaScript(TypeScript)の testing library
+- Jest は JavaScript(TypeScript)の Testing Library
 - テスティングフレームワークにはｘ Unit と Spec 系がある
 - Jest は Spec 系
 - describe を使って階層構造を表現できる
 - 若干書き方は違うが、テストケースの考え方自体は PHPUnit と変わらない
-  - 多分すぐに慣れると思う
+
+---
+
+<!--
+backgroundColor: black
+paginate: false
+footer: ""
+-->
