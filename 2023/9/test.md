@@ -45,7 +45,7 @@ _paginate: false
 
 - テスティングフレームワークは 2 系統に分かれる
   - ｘ Unit 系 と Spec 系
-- x Unit
+- x Unit 系
   - JUnit(Java), PHPUnit(PHP)
   - テストケースはクラスやメソッドで表現
   - アサーションで条件確認
@@ -59,9 +59,9 @@ _paginate: false
 
 # Jest でテストを書く流れ
 
-- ファイル名は 〇〇.spec.js
-- describe にテストの条件を記述
-- test(it)に期待値を記述
+- ファイル名は 〇〇.spec.js(ts)
+- describe メソッドにテストの条件を記述
+- test(it)メソッドに期待値を記述
 
 ---
 
@@ -160,7 +160,7 @@ _footer: ""
 _paginate: false
 -->
 
-ベストプラクティスを学ぶなら
+Jest のベストプラクティスを学ぶなら
 
 ## ![w:900](link.png)
 
