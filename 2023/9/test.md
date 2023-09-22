@@ -123,7 +123,7 @@ describe("getResult", () => {
 
 ---
 
-```ts:sample.ts
+```ts:sample.spec.ts
 import { getResult } from "./sample";
 
 describe("getResult", () => {
@@ -132,17 +132,17 @@ describe("getResult", () => {
     expect(result).toBe("0");
   });
 
-  test("3の倍数でも5の倍数でもあるとき1を返す", () => {
+  test("5の倍数のとき1を返す", () => {
     const result = getResult(25);
     expect(result).toBe("1");
   });
 
-  test("3の倍数でも5の倍数でもあるとき2を返す", () => {
+  test("3の倍数のとき2を返す", () => {
     const result = getResult(48);
     expect(result).toBe("2");
   });
 
-  test("3の倍数でも5の倍数でもあるとき3を返す", () => {
+  test("それ以外のとき3を返す", () => {
     const result = getResult(112);
     expect(result).toBe("3");
   });
@@ -151,7 +151,7 @@ describe("getResult", () => {
 
 ---
 
-## ![w:1150](result2.png)
+## ![w:1150](test3.png)
 
 ---
 
