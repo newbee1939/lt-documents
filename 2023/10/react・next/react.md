@@ -38,11 +38,16 @@ _paginate: false
 
 # React の特徴と課題
 
+- クライアント側で全ての JavaScript をレンダリングする
+  - クライアント側のパフォーマンス悪化が懸念
+
 ![w:500](jest.png)
 
 ---
 
 # Next.js が解決した課題
+
+- SSR
 
 ---
 
