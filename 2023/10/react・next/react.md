@@ -39,7 +39,9 @@ _paginate: false
 
 - React
   - UI を簡単に構築するための JavaScript ライブラリ
-  - コンポーネントという概念を使って宣言的に画面を構築できる
+  - コンポーネントという概念を使ってパーツを組み立てる感覚で画面を構築できる
+
+![w:400](react.png)
 
 ---
 
@@ -51,18 +53,25 @@ _paginate: false
     - ex. ルーティング機能など
   - リアーキでも採用している
 
+![w:300](next.png)
+
 ---
+
+<!--
+_footer: ""
+_paginate: false
+-->
 
 # React の課題について
 
 - クライアント側で全ての JavaScript をレンダリングする
   - クライアント側のパフォーマンス悪化が懸念
 
-画像貼る
-https://nextjs.org/learn/basics/data-fetching/pre-rendering
-![w:500](jest.png)
+![w:800](app.png)
 
 ---
+
+[ここから！]
 
 # React Server Components が解決する React の課題
 
