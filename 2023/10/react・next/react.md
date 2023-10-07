@@ -71,9 +71,29 @@ _paginate: false
 
 ---
 
+# つまり
+
+フロント側の負担が大きすぎる
+
+---
+
+# そこで
+
+React Server Component
+
+---
+
+# React Server Components とは
+
+---
+
 [ここから！]
 
 # React Server Components が解決する React の課題
+
+- レンダリングがサーバーとフロントに分かれる
+- フロントに送信するバンドルサイズが減る
+- フロントの負担が減って軽くなる（パフォーマンスの向上）
 
 ---
 
