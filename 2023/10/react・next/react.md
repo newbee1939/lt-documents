@@ -20,7 +20,7 @@ _paginate: false
 
 # React/Next.js の最新トレンドに
 
-# 少しだけ触れる
+# 少しだけ触れてみる
 
 ---
 
@@ -51,7 +51,6 @@ _paginate: false
   - React のフレームワーク
   - React の機能を拡張してより使いやすくしたもの
     - ex. ルーティング機能など
-  - リアーキでも採用している
 
 ![w:300](next.png)
 
@@ -79,21 +78,14 @@ _paginate: false
 
 # そこで
 
-React Server Component
+React Server Components が登場！
 
 ---
 
 # React Server Components とは
 
----
-
-[ここから！]
-
-# React Server Components が解決する React の課題
-
-- レンダリングがサーバーとフロントに分かれる
-- フロントに送信するバンドルサイズが減る
-- フロントの負担が減って軽くなる（パフォーマンスの向上）
+- コンポーネントを「クライアント側でレンダリングされるコンポーネント」と「サーバー側でレンダリングされるコンポーネント」に分ける技術
+- クライアントに送信される JS の量（クライアントでレンダリングされるコード量）が減るため、パフォーマンスの向上が期待されている
 
 ---
 
@@ -101,14 +93,26 @@ React Server Component
 
 - Next.js には二つのモードがある
 - Pages Router と App Router
-
-- SSR について。SSR の話する？
-- フロント側に全ての JavaScript を送信して実行しないといけない部分は変わっていない
-- 重い
+- App Router が現在推奨されているモード
+- App Router では、React Server Components が採用されている
+- デフォルトだと、実装したコンポーネントは「サーバーコンポーネント」になる
+  - Next.js の、「なるべくサーバー側に処理を寄せることで、パフォーマンスの改善を図りたい」という意図が読み取れる
 
 ---
 
 # React Server Components と App Router のデモ
+
+- サーバー側で実行されるコンポーネントと、クライアント側で実行されるコンポーネント
+
+---
+
+# まとめ
+
+- React では、クライアント側の負担の増加が課題だった
+- そこで登場したのが React Server Components
+  - コンポーネントを「サーバーコンポーネント」と「クライアントコンポーネント」に分ける
+  - クライアント側に送信する JS の量を減らすことに成功
+- Next.js の App Router は React Server Components がベースになっている
 
 ---
 
