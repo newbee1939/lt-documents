@@ -163,11 +163,10 @@ App Router を使うことで、React Server Components を簡単に実装でき
 
 --- -->
 
-# 資料
+# 主な資料
 
 - [一言で理解する React Server Components](https://zenn.dev/uhyo/articles/react-server-components-multi-stage)
 - [Next.js 公式ドキュメント](https://nextjs.org/docs)
-- [Next.js から学ぶ Web レンダリング ~React 誕生以前から App Router with RSC までの流れ~](https://zenn.dev/suzu_4/articles/2e6dbb25c12ee5)
 - [What's "Next" JS Meetup](https://www.youtube.com/watch?v=WHMm6w41_WI&ab_channel=TimeeEngineering)
 - [Nextjs で理解する React Server Components 徹底解説【React18】](https://youtu.be/A78v05JSyqg?si=EJiKhE35K11TbcGe)
 
