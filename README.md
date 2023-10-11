@@ -6,6 +6,10 @@ LT 用のドキュメント・発表資料
 
 - Marp for VS Code
 
+## how to use
+
+PDF のファイルをブラウザにドラッグ&ドロップ
+
 ## task
 
 - TODO: 雛形を自動生成するスクリプト作成
