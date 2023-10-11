@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: gaia
-footer: "2023/09/13 React/Next LT会"
+footer: "2023/10/13 React/Next.js LT会"
 size: 16:9
 paginate: true
 # ゴール
@@ -124,6 +124,15 @@ _paginate: false
   - コンポーネントを「サーバーコンポーネント」と「クライアントコンポーネント」に分ける
   - クライアント側に送信する JS の量を減らすことに成功
 - Next.js の App Router は React Server Components がベースになっている
+
+---
+
+# おまけ
+
+- 今回は複雑になるので省略したが、このあたりに Suspense や SSR のような概念も絡んでくる
+- React Server Components を導入したら、無条件に bundle サイズが小さくなるわけではない。場合によっては大きくなる場合もある
+  - 参考: [【衝撃】React Server Components が転送量に与えた驚きの影響とは...](https://qiita.com/uhyo/items/06b0cd7292256f66d7b7)
+- 気になる人は調べてみてください
 
 ---
 
