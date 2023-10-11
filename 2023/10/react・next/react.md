@@ -127,7 +127,7 @@ _paginate: false
 - App Router が現在推奨されているモード
 - App Router では、React Server Components が採用されている
 - デフォルトだと、実装したコンポーネントは「サーバーコンポーネント」になる
-- クライアントコンポーネントにする場合は、`use client`を記述する必要がある
+- クライアントコンポーネントにする場合は、`'use client'`を記述する必要がある
 
 ---
 
@@ -154,14 +154,14 @@ App Router を使うことで、React Server Components を簡単に実装でき
 
 ---
 
-# 補足
+<!-- # 補足
 
 - 今回は説明が複雑になるので省略したが、RSC・App Router に Suspense や SSR のような概念も絡んでくる
 - React Server Components を導入したら、無条件に bundle サイズが小さくなるわけではない。場合によっては大きくなる場合もある
   - 参考: [【衝撃】React Server Components が転送量に与えた驚きの影響とは...](https://qiita.com/uhyo/items/06b0cd7292256f66d7b7)
 - 気になる人は調べてみてください
 
----
+--- -->
 
 # 資料
 
