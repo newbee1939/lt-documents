@@ -35,6 +35,14 @@ _paginate: false
 
 ---
 
+# 本日のゴール
+
+React Server Components と App Router をふんわり理解している
+
+![w:350](obake.png)
+
+---
+
 # React とは何か
 
 - React
@@ -52,7 +60,7 @@ _paginate: false
   - React の機能を拡張してより使いやすくしたもの
     - ex. ルーティング機能など
 
-![w:300](next.png)
+![w:400](next.png)
 
 ---
 
@@ -63,40 +71,42 @@ _paginate: false
 
 # React の課題について
 
-- クライアント側で全ての JavaScript をレンダリングする
-  - クライアント側のパフォーマンス悪化が懸念
+- クライアント側でアプリの全ての JavaScript をレンダリングする
+  - クライアントに送信される JS のサイズが大きい
+  - 実行にコストがかかる
+- クライアント側のパフォーマンス悪化が懸念
 
-![w:800](app.png)
-
----
-
-# つまり
-
-フロント側の負担が大きすぎる
+![w:540](app.png)
 
 ---
 
 # そこで
 
-React Server Components が登場！
+### React Server Components が登場！
 
 ---
 
-# React Server Components とは
+# React Server Components(RSC)とは
 
-- コンポーネントを「クライアント側でレンダリングされるコンポーネント」と「サーバー側でレンダリングされるコンポーネント」に分ける技術
-- クライアントに送信される JS の量（クライアントでレンダリングされるコード量）が減るため、パフォーマンスの向上が期待されている
+- コンポーネントを「クライアント側でレンダリングされるコンポーネント」と「サーバー側でレンダリングされるコンポーネント」に分ける React の新機能
+- クライアントに送信される JS の量（クライアント上でレンダリングされるコード量）が減るため、パフォーマンスの向上が期待されている
+
+---
+
+# 要は
+
+**今までクライアント側でしか実行できなかった React が、サーバー側でも実行できるようになった**ということ
 
 ---
 
 # Next.js の App Router について
 
 - Next.js には二つのモードがある
-- Pages Router と App Router
+  - Pages Router と App Router
 - App Router が現在推奨されているモード
 - App Router では、React Server Components が採用されている
 - デフォルトだと、実装したコンポーネントは「サーバーコンポーネント」になる
-  - Next.js の、「なるべくサーバー側に処理を寄せることで、パフォーマンスの改善を図りたい」という意図が読み取れる
+- クライアントコンポーネントにする場合は、`use client`を記述する必要がある
 
 ---
 
@@ -109,10 +119,21 @@ React Server Components が登場！
 # まとめ
 
 - React では、クライアント側の負担の増加が課題だった
+  - アプリを丸ごとクライアント側で構築するのは、パフォーマンス的に厳しい
 - そこで登場したのが React Server Components
   - コンポーネントを「サーバーコンポーネント」と「クライアントコンポーネント」に分ける
   - クライアント側に送信する JS の量を減らすことに成功
 - Next.js の App Router は React Server Components がベースになっている
+
+---
+
+# 資料
+
+- [一言で理解する React Server Components](https://zenn.dev/uhyo/articles/react-server-components-multi-stage)
+- [Next.js 公式ドキュメント](https://nextjs.org/docs)
+- [Next.js から学ぶ Web レンダリング ~React 誕生以前から App Router with RSC までの流れ~](https://zenn.dev/suzu_4/articles/2e6dbb25c12ee5)
+- [What's "Next" JS Meetup](https://www.youtube.com/watch?v=WHMm6w41_WI&ab_channel=TimeeEngineering)
+- [Nextjs で理解する React Server Components 徹底解説【React18】](https://youtu.be/A78v05JSyqg?si=EJiKhE35K11TbcGe)
 
 ---
 
