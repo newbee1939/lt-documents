@@ -1,6 +1,7 @@
 ---
 marp: true
 theme: gaia
+class: invert
 footer: "2023/10/13 React/Next.js LT会"
 size: 16:9
 paginate: true
@@ -13,7 +14,9 @@ paginate: true
 ---
 
 <!--
-_class: lead
+_class:
+  - lead
+  - invert
 _footer: ""
 _paginate: false
 -->
@@ -58,7 +61,7 @@ React Server Components と App Router をふんわり理解している
 - Next.js
   - React のフレームワーク
   - React の機能を拡張してより使いやすくしたもの
-    - ex. ルーティング機能など
+    - ex. ルーティングや SSR など
 
 ![w:400](next.png)
 
@@ -99,6 +102,24 @@ _paginate: false
 
 ---
 
+# React Server Components(RSC)のレンダリングの流れ
+
+1. サーバー側でサーバーコンポーネントをレンダリングする
+2. サーバーコンポーネントの HTML とクライアントコンポーネントの JavaScript をクライアントに送信する
+3. クライアントコンポーネントをレンダリングする
+4. 生成した HTML を DOM に反映させてクライアント側で表示する
+
+---
+
+# React Server Components(RSC)のレンダリングの流れ
+
+1. サーバー側でサーバーコンポーネントをレンダリングする
+2. サーバーコンポーネントの HTML と **_クライアントコンポーネントの JavaScript をクライアントに送信_** する
+3. クライアント側でクライアントコンポーネントをレンダリングする
+4. 生成した HTML を DOM に反映させてクライアント側で表示する
+
+---
+
 # Next.js の App Router について
 
 - Next.js には二つのモードがある
@@ -107,6 +128,12 @@ _paginate: false
 - App Router では、React Server Components が採用されている
 - デフォルトだと、実装したコンポーネントは「サーバーコンポーネント」になる
 - クライアントコンポーネントにする場合は、`use client`を記述する必要がある
+
+---
+
+# つまり
+
+App Router を使うことで、React Server Components を簡単に実装できる
 
 ---
 
@@ -127,9 +154,9 @@ _paginate: false
 
 ---
 
-# おまけ
+# 補足
 
-- 今回は複雑になるので省略したが、このあたりに Suspense や SSR のような概念も絡んでくる
+- 今回は説明が複雑になるので省略したが、RSC・App Router に Suspense や SSR のような概念も絡んでくる
 - React Server Components を導入したら、無条件に bundle サイズが小さくなるわけではない。場合によっては大きくなる場合もある
   - 参考: [【衝撃】React Server Components が転送量に与えた驚きの影響とは...](https://qiita.com/uhyo/items/06b0cd7292256f66d7b7)
 - 気になる人は調べてみてください
