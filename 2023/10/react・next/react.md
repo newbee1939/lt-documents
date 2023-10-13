@@ -116,6 +116,8 @@ _paginate: false
 3. クライアント側でクライアントコンポーネントをレンダリングする
 4. 生成した HTML を DOM に反映させてクライアント側で表示する
 
+-> サーバーコンポーネントの分、クライアントの負担が減る
+
 ---
 
 # Next.js の App Router について
@@ -124,7 +126,7 @@ _paginate: false
   - Pages Router と App Router
 - App Router が現在推奨されているモード
 - App Router では、React Server Components が採用されている
-- デフォルトだと、実装したコンポーネントは「サーバーコンポーネント」になる
+- デフォルトだと、実装したコンポーネントはサーバーコンポーネントになる
 - クライアントコンポーネントにする場合は、`'use client'`を記述する必要がある
 
 ---
@@ -136,8 +138,6 @@ App Router を使うことで、React Server Components を簡単に実装でき
 ---
 
 # React Server Components と App Router のデモ
-
-- サーバー側で実行されるコンポーネントと、クライアント側で実行されるコンポーネント
 
 ---
 
