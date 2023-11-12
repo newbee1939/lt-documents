@@ -24,6 +24,9 @@ _paginate: false
 
 テスト
 
+!!memo.md を ChatGPT に読ませて、ai.md を出力させてみる
+LT 資料も AI で作ってみる!!
+
 ![](me.png)
 
 ---
