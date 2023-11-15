@@ -26,6 +26,8 @@ _paginate: false
 
 !!memo.md を ChatGPT に読ませて、ai.md を出力させてみる
 LT 資料も AI で作ってみる!!
+そもそも、資料を読ませずとも、ChatGPT 自体に書いてもらうもいいかも
+課金する？一ヶ月だけ。GPTs も触ってみたいし
 
 ![](me.png)
 
