@@ -5,6 +5,11 @@ class: invert
 footer: "2023/11/17 AIのLT会"
 size: 16:9
 paginate: true
+style: |
+  img[alt='center'] {
+      display: block;
+      margin: 0 auto;
+  }
 ---
 
 <!--
@@ -29,7 +34,7 @@ _footer: ""
 
 # 参考にした本
 
-![w:310](chat.jpg)
+![w:312 center](chat.jpg)
 
 ---
 
