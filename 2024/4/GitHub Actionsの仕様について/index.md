@@ -61,7 +61,7 @@ _footer: ""
 <br>
 <br>
 
-![w:600 center](dependa.svg)
+![w:600 center drop-shadow](dependa.svg)
 
 ---
 
