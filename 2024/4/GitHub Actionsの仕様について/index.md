@@ -3,6 +3,11 @@ marp: true
 theme: gaia
 class: invert
 size: 16:9
+style: |
+  img[alt='center'] {
+      display: block;
+      margin: 0 auto;
+  }
 # 聞き手の状態ゴール
 # - トリガーによってハッシュ値が異なることを知る
 # - Dependabotからsecretの値を読む方法を知る（Dependabot Secretの存在を知る）
@@ -26,6 +31,10 @@ _footer: ""
 
 - 自動テスト・自動リリース（CI/CD）を行うためのツール
 
+<br>
+
+![w:600 center](actions.webp)
+
 ---
 
 <!--
@@ -46,6 +55,11 @@ _footer: ""
 ## Dependabot とは？
 
 自動的にパッケージを更新してプルリクエストを発行してくれる GitHub の機能
+
+<br>
+<br>
+
+![w:600 center](dependa.svg)
 
 ---
 
@@ -101,6 +115,8 @@ _footer: ""
 
 - トリガー = ワークフローを動かす条件
 - `pull_request`だと Dependabot から secret を読めないが、`pull_request_target`だと読める
+
+<br>
 
 ```yml
 name: release dev
