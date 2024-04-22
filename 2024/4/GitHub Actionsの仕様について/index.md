@@ -8,6 +8,9 @@ style: |
       display: block;
       margin: 0 auto;
   }
+  strong,b {
+    color: red;
+  }
 # 聞き手の状態ゴール
 # - トリガーによってハッシュ値が異なることを知る
 # - Dependabotからsecretの値を読む方法を知る（Dependabot Secretの存在を知る）
@@ -95,7 +98,7 @@ _footer: ""
 
 - Secret = GitHub Actions で秘匿情報を保存する機能
 - dev 環境をリリースするワークフロー上で Secret を参照
-- Dependabot は secret を読むことができないのでエラーになった
+- **Dependabot は secret を読むことができない**のでエラーになった
 
 ```yml
 steps:
@@ -203,7 +206,7 @@ _footer: ""
 ## 原因: トリガーを変更したことで github.sha の値が変化しなくなったから
 
 - imageの値に`${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}`のように github.sha の値を使用している
-- この値がトリガー毎に異なる
+- **github.shaの値はトリガー毎に異なる**
   - pull_request
     - 現在の作業ブランチの最後のマージコミット
   - pull_request_target
