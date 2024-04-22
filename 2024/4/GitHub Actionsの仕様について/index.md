@@ -266,7 +266,7 @@ jobs:
       - id: generate-token
         with:
           private-key: |
-            ${{ secrets.KEY }} <--- Dependabotの場合はDependabot シークレットから値を参照する
+            ${{ secrets.KEY }} <--- Dependabotの場合はDependabot Secret から値を参照する
 ```
 
 ---
@@ -298,7 +298,7 @@ _footer: ""
 ## まとめ
 
 - github.sha はトリガー毎に取得されるハッシュ値が異なるので注意する
-- Dependabot から secret の値を参照したいときは Dependabot シークレット を使う
+- Dependabot から secret の値を参照したいときは Dependabot Secretを使う
 
 ---
 
