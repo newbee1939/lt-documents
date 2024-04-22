@@ -36,10 +36,6 @@ _class:
 _footer: ""
 -->
 
-## GitHub Actions の 細かい仕様に苦しめられたので、そこで得た知見を共有します
-
----
-
 ## GitHub Actions とは何か？
 
 - 自動テスト・自動リリース（CI/CD）を行うためのツール
@@ -98,8 +94,8 @@ _footer: ""
 ## 原因: Dependabot から Secret の値を読めないから
 
 - Secret = GitHub Actions で秘匿情報を保存する機能
-- dev 環境をリリースするワークフロー上で Secret を参照している
-- Dependabot は secret を読むことができないのでエラーになっていた
+- dev 環境をリリースするワークフロー上で Secret を参照
+- Dependabot は secret を読むことができないのでエラーになった
 
 ```yml
 steps:
@@ -127,7 +123,8 @@ _footer: ""
 ## トリガーを pull_request_target に変更した
 
 - トリガー = ワークフローを動かす条件
-- `pull_request`だと Dependabot から secret を読めないが、`pull_request_target`だと読める
+- `pull_request`だと Dependabot から secret を読めない
+- `pull_request_target`だと読める
 
 <br>
 
@@ -148,7 +145,8 @@ _class:
 _footer: ""
 -->
 
-# dev 環境にリリースできるようになった！
+# dev 環境にリリース
+# できるようになった！
 
 ---
 
