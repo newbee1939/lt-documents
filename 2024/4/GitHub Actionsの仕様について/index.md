@@ -50,7 +50,7 @@ _footer: ""
 
 ## Dependabot の プルリクエスト で
 
-## dev 環境にリリースできない
+## dev 環境にリリースできない..
 
 ---
 
@@ -150,6 +150,8 @@ _footer: ""
 
 # 解決！
 
+![w:350](happy.png)
+
 ---
 
 <!--
@@ -160,6 +162,8 @@ _footer: ""
 -->
 
 # してなかった...
+
+![w:350](zt.png)
 
 ---
 
@@ -189,7 +193,7 @@ _footer: ""
 
 ## 原因: トリガーを変更したことで github.sha の値が変化しなくなったから
 
-- リリース時に`${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}`のように github.sha の値を参照している
+- imageの値に`${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}`のように github.sha の値を使用している
 - この値がトリガー毎に異なる
   - pull_request
     - 現在の作業ブランチの最後のマージコミット
@@ -217,6 +221,8 @@ _footer: ""
 -->
 
 # どうする？
+
+![w:300](think.png)
 
 ---
 
