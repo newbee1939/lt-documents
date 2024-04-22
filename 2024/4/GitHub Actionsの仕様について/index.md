@@ -32,13 +32,6 @@ _footer: ""
 
 ---
 
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
 ## GitHub Actions とは何か？
 
 - 自動テスト・自動リリース（CI/CD）を行うためのツール
