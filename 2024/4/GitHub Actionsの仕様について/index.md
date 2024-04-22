@@ -231,6 +231,10 @@ _footer: ""
 - Dependabot Secret = Dependabot 用の secret
 - Dependabot Secret を使うと、pull_request トリガーを利用しても、Dependabot から secret の値を参照できる
 
+<br>
+
+![center](secret.png)
+
 ---
 
 ## 最終的にはこうなった
