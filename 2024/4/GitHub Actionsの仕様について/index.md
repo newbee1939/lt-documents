@@ -8,11 +8,6 @@ style: |
       display: block;
       margin: 0 auto;
   }
-  section.title {
-    text-shadow: 0 2px 4px #00000050;
-    background-image: linear-gradient(45deg, #ec9f05 25%, transparent 25%),
-      linear-gradient(-45deg, #ec9f05 25%, transparent 25%);
-  }
 # 聞き手の状態ゴール
 # - トリガーによってハッシュ値が異なることを知る
 # - Dependabotからsecretの値を読む方法を知る（Dependabot Secretの存在を知る）
@@ -40,7 +35,7 @@ _footer: ""
 
 <br>
 
-![w:600 center](actions.webp)
+![w:600 center drop-shadow](actions.webp)
 
 ---
 
@@ -238,7 +233,7 @@ _footer: ""
 
 <br>
 
-![center](secret.png)
+![center drop-shadow](secret.png)
 
 ---
 
