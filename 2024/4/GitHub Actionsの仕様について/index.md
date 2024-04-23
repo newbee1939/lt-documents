@@ -276,7 +276,7 @@ jobs:
       - id: generate-token
         with:
           private-key: |
-            ${{ secrets.KEY }} <--- Dependabotの場合はDependabot Secret から値を参照する
+            ${{ secrets.KEY }} <--- Dependabotの場合はDependabot Secretから値を参照する
 ```
 
 ---
