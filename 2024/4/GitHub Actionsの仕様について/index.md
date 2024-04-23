@@ -11,6 +11,9 @@ style: |
   strong,b {
     color: red;
   }
+  h2 strong,b {
+    color: red;
+  }
 # 聞き手の状態ゴール
 # - トリガーによってハッシュ値が異なることを知る
 # - Dependabotからsecretの値を読む方法を知る（Dependabot Secretの存在を知る）
@@ -47,11 +50,11 @@ _class:
 _footer: ""
 -->
 
-## 【発生した事象】
+### 【発生した事象】
 
-## Dependabot の プルリクエスト で
+## **Dependabot の プルリクエスト で**
 
-## dev 環境にリリースできない...
+## **dev 環境にリリースできない...**
 
 ---
 
@@ -177,9 +180,9 @@ _class:
 _footer: ""
 -->
 
-# 【発生した事象 2】
+### 【発生した事象 2】
 
-## 変更を push しても dev 環境が更新されない...
+## **変更を push しても dev 環境が更新されない...**
 
 ---
 
