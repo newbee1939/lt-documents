@@ -33,7 +33,7 @@ _footer: ""
 
 ---
 
-## GitHub Actions とは何か？
+## GitHub Actions とは？
 
 自動テスト・自動リリース（CI/CD）を行うためのツール
 
@@ -120,7 +120,7 @@ _footer: ""
 ## トリガーを pull_request_target に変更した
 
 - トリガー = ワークフローを動かす条件
-- `pull_request`だと Dependabot から secret を読めない
+- `pull_request`だと Dependabot から Secret を読めない
 - `pull_request_target`だと読める
 
 <br>
@@ -199,8 +199,23 @@ _footer: ""
 
 ## 原因: トリガーを変更したことで github.sha の値が変化しなくなったから
 
-- デプロイimageの値に`${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}`のように github.sha の値を使用している
-- **github.shaの値はトリガー毎に異なる**
+デプロイimageの値に github.sha の値を使用している
+
+<br>
+
+```yml
+on:
+  pull_request:
+jobs:
+  push-image:
+    steps:
+      - name: Build docker image
+          tags: ${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}
+```
+
+---
+
+## **github.shaの値はトリガー毎に異なる**
   - pull_requestトリガー
     - 現在の作業ブランチの最後のコミット
   - pull_request_targetトリガー
@@ -208,7 +223,7 @@ _footer: ""
 
 ---
 
-- トリガーを pull_request_target に変えたことで、変更内容を push してもイメージが更新されなくなった
+トリガーを pull_request_target に変えたことで、変更内容を push してもイメージが更新されなくなった
 
 ---
 
@@ -235,7 +250,7 @@ _footer: ""
 ## 解決策: Dependabot Secret を利用する
 
 - Dependabot Secret = Dependabot 用の secret
-- Dependabot Secret を使うと、pull_request トリガーを利用しても**Dependabot から secret の値を参照できる**
+- Dependabot Secret を使うと、pull_request トリガーを利用しても**Dependabot から Secret の値を参照できる**
 
 <br>
 
