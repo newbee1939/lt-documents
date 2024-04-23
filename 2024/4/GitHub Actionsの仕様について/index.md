@@ -156,7 +156,7 @@ _footer: ""
 
 # 解決！
 
-![w:350](happy.png)
+![w:350 drop-shadow](happy.png)
 
 ---
 
@@ -169,7 +169,7 @@ _footer: ""
 
 # してなかった...
 
-![w:350](zt.png)
+![w:350 drop-shadow](zt.png)
 
 ---
 
