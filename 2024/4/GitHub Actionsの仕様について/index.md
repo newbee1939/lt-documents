@@ -16,7 +16,7 @@ style: |
   }
 # 聞き手の状態ゴール
 # - トリガーによってハッシュ値が異なることを知る
-# - Dependabotからsecretの値を読む方法を知る（Dependabot Secretの存在を知る）
+# - DependabotからSecretの値を読む方法を知る（Dependabot Secretの存在を知る）
 # - 新卒もいるので噛み砕いて
 ---
 
@@ -100,7 +100,7 @@ steps:
     uses: actions/create-github-app-token@f2acddfb5195534d487896a656232b016a682f3c # v1.9.0
     with:
       app-id: 386721
-      private-key: ${{ secrets.KEY }} <--- ここでsecretを参照
+      private-key: ${{ secrets.KEY }} <--- ここでSecretを参照
       owner: ${{ github.repository_owner }}
 ```
 
@@ -199,7 +199,7 @@ _footer: ""
 
 ## 原因: トリガーを変更したことで github.sha の値が変化しなくなったから
 
-デプロイimageの値に github.sha の値を使用している
+前提: デプロイimageの値に github.sha の値を使用している
 
 <br>
 
@@ -217,9 +217,9 @@ jobs:
 
 ## **github.shaの値はトリガー毎に異なる**
   - pull_requestトリガー
-    - 現在の作業ブランチの最後のコミット
+    - PRのブランチの最後のコミット
   - pull_request_targetトリガー
-    - ベースブランチの直近のコミット
+    - PRのベースブランチの直近のコミット
 
 ---
 
@@ -229,7 +229,7 @@ jobs:
 
 ## 現状を整理
 
-- pull_request トリガーだと Dependabot から secret を読めない
+- pull_request トリガーだと Dependabot から Secret を読めない
 - pull_request_target トリガーだと dev 環境が更新されない
 
 ---
@@ -249,7 +249,7 @@ _footer: ""
 
 ## 解決策: Dependabot Secret を利用する
 
-- Dependabot Secret = Dependabot 用の secret
+- Dependabot Secret = Dependabot 用の Secret
 - Dependabot Secret を使うと、pull_request トリガーを利用しても**Dependabot から Secret の値を参照できる**
 
 <br>
