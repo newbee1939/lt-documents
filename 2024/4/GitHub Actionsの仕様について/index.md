@@ -231,7 +231,7 @@ _footer: ""
 
 ---
 
-## 解決策: `Dependabot Secret` を利用する
+## 解決策: Dependabot Secret を利用する
 
 - Dependabot Secret = Dependabot 用の secret
 - Dependabot Secret を使うと、pull_request トリガーを利用しても、**Dependabot から secret の値を参照できる**
