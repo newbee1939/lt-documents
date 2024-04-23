@@ -291,7 +291,7 @@ _footer: ""
 
 ## まとめ
 
-- github.sha はトリガー毎に取得されるハッシュ値が異なるので注意する
+- github.sha はトリガー毎に取得されるハッシュ値が異なるので注意
 - Dependabot から secret の値を参照したいときは Dependabot Secretを使う
 
 ---
