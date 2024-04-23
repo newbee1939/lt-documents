@@ -92,7 +92,7 @@ _footer: ""
 
 - Secret = GitHub Actions で秘匿情報を保存する機能
 - dev 環境をリリースするワークフロー上で Secret を参照
-- **Dependabot は secret を読むことができない**のでエラーになった
+- **Dependabot は Secret を読むことができない**のでエラーになった
 
 ```yml
 steps:
