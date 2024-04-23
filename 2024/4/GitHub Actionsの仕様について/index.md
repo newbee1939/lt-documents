@@ -199,11 +199,11 @@ _footer: ""
 
 ## 原因: トリガーを変更したことで github.sha の値が変化しなくなったから
 
-- imageの値に`${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}`のように github.sha の値を使用している
+- デプロイimageの値に`${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}`のように github.sha の値を使用している
 - **github.shaの値はトリガー毎に異なる**
-  - pull_request
-    - 現在の作業ブランチの最後のマージコミット
-  - pull_request_target
+  - pull_requestトリガー
+    - 現在の作業ブランチの最後のコミット
+  - pull_request_targetトリガー
     - ベースブランチの直近のコミット
 
 ---
@@ -212,7 +212,7 @@ _footer: ""
 
 ---
 
-## 一旦現状を整理
+## 現状を整理
 
 - pull_request トリガーだと Dependabot から secret を読めない
 - pull_request_target トリガーだと dev 環境が更新されない
@@ -235,7 +235,7 @@ _footer: ""
 ## 解決策: Dependabot Secret を利用する
 
 - Dependabot Secret = Dependabot 用の secret
-- Dependabot Secret を使うと、pull_request トリガーを利用しても、**Dependabot から secret の値を参照できる**
+- Dependabot Secret を使うと、pull_request トリガーを利用しても**Dependabot から secret の値を参照できる**
 
 <br>
 
@@ -275,7 +275,7 @@ _footer: ""
 
 ## 全てのプルリクエストで dev 環境が
 
-## リリース&更新されるようになった
+## リリース&更新されるようになった！
 
 ---
 
@@ -294,8 +294,8 @@ _footer: ""
 
 ## まとめ
 
-- github.sha はトリガー毎に取得されるハッシュ値が異なるので注意
-- Dependabot から secret の値を参照したいときは Dependabot Secretを使う
+- github.sha はトリガー毎に取得されるハッシュ値が異なる
+- Dependabot から Secret の値を参照したいときは Dependabot Secretを使う
 
 ---
 
