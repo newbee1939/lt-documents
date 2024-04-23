@@ -88,11 +88,11 @@ _footer: ""
 
 ---
 
-## 原因: Dependabot から Secret の値を読めないから
+## 原因: **Dependabot から Secret の値を読めない**から
 
 - Secret = GitHub Actions で秘匿情報を保存する機能
 - dev 環境をリリースするワークフロー上で Secret を参照
-- **Dependabot は Secret を読むことができない**のでエラーになった
+- Dependabot は Secret を読むことができないのでエラーになった
 
 ```yml
 steps:
@@ -216,10 +216,13 @@ jobs:
 ---
 
 ## **github.shaの値はトリガー毎に異なる**
-  - pull_requestトリガー
-    - PRのブランチの最後のコミット
-  - pull_request_targetトリガー
-    - PRのベースブランチの直近のコミット
+
+<br>
+
+- pull_requestトリガー
+  - PRのブランチの最後のコミット
+- pull_request_targetトリガー
+  - PRのベースブランチの直近のコミット
 
 ---
 
