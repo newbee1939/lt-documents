@@ -243,7 +243,7 @@ _footer: ""
 
 # どうする？
 
-![w:300](think.png)
+![w:300 drop-shadow](think.png)
 
 ---
 
@@ -291,19 +291,6 @@ _footer: ""
 ## 全てのプルリクエストで dev 環境が
 
 ## リリース&更新されるようになった！
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-# 今度こそ解決！
-
-![w:350 ](happy.png)
 
 ---
 
