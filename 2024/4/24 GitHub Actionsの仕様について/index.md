@@ -197,9 +197,23 @@ _footer: ""
 
 ---
 
-## 原因: トリガーを変更したことで github.sha の値が変化しなくなったから
+<!--
+_class:
+  - lead
+  - invert
+_footer: ""
+-->
 
-前提: デプロイimageの値に github.sha の値を使用している
+### 【原因】
+
+## トリガーを変更したことで 
+## github.sha の値が変化しなくなったから
+
+---
+
+## 前提: デプロイimageの値に github.sha の値を使用している
+
+pushの度に`github.sha`が変化しないとdev環境も更新されない
 
 <br>
 
