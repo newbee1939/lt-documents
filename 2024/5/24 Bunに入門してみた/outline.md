@@ -12,6 +12,17 @@
     - Bunの特徴について
     - Bunを使って簡単なアプリを作った
         - その中で感じたこと・学んだこと
+            - 環境変数を`Bun.env`で読める
+                - dotenv不要
+            - bun installが速い
+            - `bun run index.ts`について、Node.jsより速い？実際に試す
+            - TypeScriptのコンパイル不要？
+                - Node.jsは必要？
+                - 内部的にトランスパイルする
+                - tsの実行が簡単
+            - 依存関係をかなり減らせる
+                - jestとかも不要
+- package.lock.jsonではなくbun.lockbで管理する？パフォーマンスのため
     - 感想
     - まとめ
 - 参考資料
