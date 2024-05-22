@@ -14,8 +14,6 @@ style: |
   h2 strong,b {
     color: red;
   }
-# 聞き手の状態ゴール
-# -
 ---
 
 <!--
@@ -29,288 +27,87 @@ _footer: ""
 
 ---
 
-## GitHub Actions とは？
+## Bunとは何か？ 
 
-自動テスト・自動リリース（CI/CD）を行うためのツール
-
-<br>
-
-![w:600 center drop-shadow](actions.webp)
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-### 【発生した事象】
-
-## **Dependabot が作成する プルリクエスト で**
-
-## **dev 環境にリリースできない...**
-
----
-
-## Dependabot とは？
-
-自動的にパッケージを更新してプルリクエストを発行してくれる GitHub の機能
-
-<br>
-<br>
-
-![w:600 center drop-shadow](dependa.svg)
-
----
-
-## dev 環境とは？
-
-各プルリクエストごとにリリースしている動作確認用の環境
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-## なぜ Dependabot の プルリクエスト で
-
-## dev 環境にリリースできなかったのか？
-
----
-
-## 原因: **Dependabot から Secret の値を読めない**から
-
-- Secret = GitHub Actions で秘匿情報を保存する機能
-- dev 環境をリリースするワークフロー上で Secret を参照
-- Dependabot は Secret を読むことができないのでエラーになった
-
-```yml
-steps:
-  - id: generate-token
-    uses: actions/create-github-app-token@f2acddfb5195534d487896a656232b016a682f3c # v1.9.0
-    with:
-      app-id: 386721
-      private-key: ${{ secrets.KEY }} <--- ここでSecretを参照
-      owner: ${{ github.repository_owner }}
-```
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-# どう対応したか？
-
----
-
-## トリガーを pull_request_target に変更した
-
-- トリガー = ワークフローを動かす条件
-- `pull_request`だと Dependabot から Secret を読めない
-- `pull_request_target`だと読める
+オールインワンの JavaScript ランタイム＆ツールキット
 
 <br>
 
-```yml
-name: release dev
-
-on:
-  # pull_request: <--- 変更前
-  pull_request_target: <--- 変更後
-```
+![w:400 center drop-shadow](bun.png)
 
 ---
 
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
+## JavaScriptランタイムとは？
 
-# dev 環境にリリース
-# できるようになった！
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-# 解決！
-
-![w:350 drop-shadow](happy.png)
+- JavaScriptを実行する環境のこと
+- 様々な種類がある
+  - Node.js
+  - Deno
+  - WinterJS  
+- Bunは最近特に伸びてきている
 
 ---
 
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
+## Bunのポイント
 
-# してなかった...
-
-![w:350 drop-shadow](zt.png)
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-### 【発生した事象 2】
-
-## **変更を push しても dev 環境が更新されない...**
+- 速い
+  - Node.jsの20倍以上
+- TypeScriptとJSXのサポート
+  - .jsx、.ts、.tsxファイルを直接実行可能
+- ESM & CommonJS、Node.jsとの互換性を担保
+- 様々なJS開発ツールが搭載
+  - テストランナー、パッケージマネージャなど
+  - 依存パッケージを減らせる
 
 ---
 
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-## なぜ dev 環境が更新されなくなったのか？
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-### 【原因】
-
-## トリガーを変更したことで 
-## github.sha の値が変化しなくなったから
-
----
-
-## 前提: デプロイimageの値に github.sha の値を使用している
-
-pushの度に`github.sha`が変化しないとdev環境も更新されない
+## ただのランタイムではない
 
 <br>
 
-```yml
-on:
-  pull_request:
-jobs:
-  push-image:
-    steps:
-      - name: Build docker image
-          tags: ${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}
-```
+>Bunは単なるランタイムではない。長期的な目標は、パッケージマネージャ、トランスパイラ、バンドル、スクリプトランナー、テストランナーなどを含む、JavaScript/TypeScriptでアプリを構築するための、まとまりのあるインフラツールキットとなることだ。
+
+引用: [What is Bun?](https://bun.sh/docs#design-goals)
 
 ---
 
-## **github.shaの値はトリガー毎に異なる**
+## 実際にBunを使ってアプリを作ってみた
 
 <br>
-
-- pull_requestトリガー
-  - PRのブランチの最後のコミット
-- pull_request_targetトリガー
-  - PRのベースブランチの直近のコミット
-
----
-
-トリガーを pull_request_target に変えたことで、変更内容を push してもイメージが更新されなくなった
-
----
-
-## 現状を整理
-
-- pull_request トリガーだと Dependabot から Secret を読めない
-- pull_request_target トリガーだと dev 環境が更新されない
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-# どうする？
-
-![w:300 drop-shadow](think.png)
-
----
-
-## 解決策: Dependabot Secret を利用する
-
-- Dependabot Secret = Dependabot 用の Secret
-- Dependabot Secret を使うと、pull_request トリガーを利用しても**Dependabot から Secret の値を参照できる**
-
 <br>
 
-![center drop-shadow](secret.png)
+![w:400 center drop-shadow](draw.png)
 
 ---
 
-## 最終的にはこうなった
+## アプリを作る中で学んだこと・感じたこと
 
-※関係ない部分は省略しています
-
-```yml
-on:
-  pull_request: <--- 変更をpushするたびにgithub.shaの値を更新させる
-jobs:
-  push-image:
-    steps:
-      - name: Build docker image
-          tags: ${{ env.IMAGE_URI }}:${{ github.sha }}-${{ github.run_attempt }}
-
-  dispatch-release-envoy-gateway:
-    steps:
-      - id: generate-token
-        with:
-          private-key: |
-            ${{ secrets.KEY }} <--- Dependabotの場合はDependabot Secretから値を参照する
-```
+- TypeScriptの実行が簡単
+- 環境変数の利用が簡単
+- bun.lockbでパッケージを管理する
+- Node.jsからの移行は簡単そう
 
 ---
 
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
+## TypeScriptの実行が簡単
 
-## 全てのプルリクエストで dev 環境が
-
-## リリース&更新されるようになった！
+- Node.jsの場合
+  - ts-nodeなどの利用が必要
+- Bunの場合
+  - `bun index.ts`で実行可能
+  - 内部的にトランスパイルを行う
 
 ---
 
-## まとめ
+## 環境変数の利用が簡単
 
-- github.sha はトリガー毎に取得されるハッシュ値が異なる
-- Dependabot から Secret の値を参照したいときは Dependabot Secretを使う
+---
+
+## bun.lockbでパッケージを管理する
+
+---
+
+## Node.jsからの移行は簡単そう
 
 ---
 
