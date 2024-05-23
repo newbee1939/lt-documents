@@ -48,6 +48,10 @@ _footer: ""
 
 ---
 
+![w:1100 center drop-shadow](bun-trend.png)
+
+---
+
 ## Bunのポイント
 
 - 速い
@@ -57,15 +61,16 @@ _footer: ""
 - ESM & CommonJS、Node.jsとの互換性を担保
 - 様々なJS開発ツールが搭載
   - テストランナー、パッケージマネージャなど
-  - 依存パッケージを減らせる
 
 ---
 
-## ただのランタイムではない
+## BunはただのJSランタイムではない
 
 <br>
 
 >Bunは単なるランタイムではない。長期的な目標は、パッケージマネージャ、トランスパイラ、バンドル、スクリプトランナー、テストランナーなどを含む、JavaScript/TypeScriptでアプリを構築するための、まとまりのあるインフラツールキットとなることだ。
+
+<br>
 
 引用: [What is Bun?](https://bun.sh/docs#design-goals)
 
@@ -80,7 +85,9 @@ _footer: ""
 
 ---
 
-![w:1200 center drop-shadow](tec.png)
+@[times_hide](https://aa-jp.slack.com/archives/C011TPLB2E9)
+
+![w:1030 center drop-shadow](tec.png)
 
 ---
 
