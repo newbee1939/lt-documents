@@ -80,6 +80,10 @@ _footer: ""
 
 ---
 
+![w:1200 center drop-shadow](tec.png)
+
+---
+
 ## アプリを作る中で学んだこと・感じたこと
 
 - TypeScriptの実行が簡単
@@ -124,17 +128,7 @@ _footer: ""
 - Bunは オールインワンの JavaScript ランタイム＆ツールキット
 - 最近伸びている
 - 速い
-
----
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
-
-# Denoにも入門したい 
+- 依存パッケージ減らせるの嬉しい
 
 ---
 
