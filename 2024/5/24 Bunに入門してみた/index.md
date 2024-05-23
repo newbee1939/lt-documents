@@ -58,7 +58,7 @@ _footer: ""
   - Node.jsの20倍以上
 - TypeScriptとJSXのサポート
   - .jsx、.ts、.tsxファイルを直接実行可能
-- ESM & CommonJS、Node.jsとの互換性を担保
+- ESModule & CommonJS、Node.jsとの互換性を担保
 - 様々なJS開発ツールが搭載
   - テストランナー、パッケージマネージャなど
 
