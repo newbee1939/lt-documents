@@ -74,6 +74,12 @@ _footer: ""
 
 ---
 
+## コールバックによる非同期処理の扱い
+
+//
+
+---
+
 <!--
 backgroundColor: black
 footer: ""
