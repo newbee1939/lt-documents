@@ -98,6 +98,12 @@ console.log('3. 読み込み開始');
 
 ---
 
+## Promise
+
+- 
+
+---
+
 <!--
 backgroundColor: black
 footer: ""
