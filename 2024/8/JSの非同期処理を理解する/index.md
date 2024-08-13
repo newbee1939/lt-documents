@@ -24,6 +24,7 @@ style: |
 # 究極のわかりやすさ
 # プレゼンのスライド
 # コピーライティングの本
+# https://www.engilaboo.com/promise-async-await/
 ---
 
 <!--
