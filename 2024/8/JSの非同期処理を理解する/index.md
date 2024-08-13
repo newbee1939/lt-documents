@@ -86,7 +86,7 @@ console.log('1. 処理開始');
 readFile('hoge.txt', (data) => {
   console.log('3. 読み込み完了');
 });
-console.log('3. 読み込み開始)
+console.log('3. 読み込み開始');
 ```
 
 ---
