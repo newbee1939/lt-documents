@@ -1,0 +1,11 @@
+{
+    // VSCodeの不要な要素を非表示
+    "editor.minimap.enabled": false,
+    "workbench.statusBar.visible": false,
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "breadcrumbs.symbolPath": "off",
+    "workbench.activityBar.location": "top",
+    // ブラケットペアの範囲を可視化
+    "editor.guides.bracketPairs": "active",
+}
