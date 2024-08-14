@@ -100,7 +100,22 @@ console.log('3. 読み込み開始');
 
 ## Promise
 
-- 
+- ES2015で追加された非同期処理のための機能
+- Promiseを使うことで、より便利かつ分かりやすい形で非同意処理を扱うことができる
+- 非同期処理を行う関数はPromiseオブジェクトを返す
+- Promiseオブジェクトに対して、終わった後に行う処理を表す関数を登録する
+
+```ts
+import { readFile } from "fs/promises";
+
+// pの型はPromise<string>
+const p = readFile("foo.txt", "utf8");
+
+p.then((data) => {
+  // 非同期処理が完了したときに呼び出される
+  console.log(data);
+})
+```
 
 ---
 
