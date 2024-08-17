@@ -39,6 +39,10 @@ _footer: ""
 
 ---
 
+## 本日のメニュー
+
+---
+
 ## 非同期処理とは何か？
 
 - 裏で行われる処理
@@ -141,7 +145,7 @@ import { readFile } from "fs/promises";
 // pの型はPromise<string>。非同期関数がPromiseを返す
 const p = readFile("foo.txt", "utf8");
 
-// 2. 非同期処理が完了したら非同期関数がPromiseに対して結果を登録する
+// 2. 非同期処理が完了したら非同期関数がPromiseに対して結果を登録する（Promiseの解決）
 p.then((data) => {
   // 非同期処理が完了したときに呼び出される
   console.log(data);
@@ -157,6 +161,80 @@ p.then((data) => {
 - PromiseベースのAPIでは非同期処理を行う関数ならどんな関数でも「PromiseおBっジェクトを返す」という点で共通しており、結果も「Promiseの解決」という共通の機構をと通して伝えられる
 - これにより、利用する側はPromiseの使い方さえ覚えていれば非同期処理の結果を無事に受け取ることができる
 - Promiseオブジェクトのthenに渡すコールバック関数は常に1引数であり、どんな非同期処理であろうと共通
+
+---
+
+## Promiseの使い方
+
+非同期処理が成功した場合の処理には.thenを使い、失敗した場合の処理の登録には`catch`を使う
+
+---
+
+## Promiseのメソッド1
+
+複数のPromiseオブジェクトを組み合わせて新しいPromiseオブジェクトを作る
+
+Promise.allは複数のPromiseを合成するメソッド。
+Promiseオブジェクトの配列を引数として受け取り、「それら全てが成功したら成功となるPromiseオブジェクト」を作って返す。
+複数の非同期処理を並行して行いたい場合に適している。
+
+どれか一つでも失敗したらその時点でPromise.allが返したPromiseも失敗する。
+
+```ts
+Promise.all([
+  prisma.users.deleteMany(),
+  prisma.posts.deleteMany(),
+  prisma.comments.deleteMany(),
+])
+```
+
+---
+
+## Promiseのメソッド2
+
+Promise.race
+
+Promiseの配列を受け取る。そして、そのうち最も早く成功または失敗したものの結果を、全体の（Promise.raceが返したPromiseの）結果とする。
+
+---
+
+## async/await構文
+
+Promiseをベースとした非同期関数を扱うための便利な機能
+
+thenよりもasync/awaitの方がよく使う。
+
+```ts
+async function get3(): Promise<number> {
+  return 3;
+}
+```
+
+async関数の返り値は必ずPromiseになる。
+async関数内部でreturn文が実行された場合、return文で返された値が、返り値のPromiseの結果となる。（async関数内でreturn文が実行された時点で、return文に渡された値を結果として、返り値のPromiseが成功裡に解決される）
+
+await式はasync関数の中で使える構文。
+
+`await 式`という形式を取る。
+与えられたPromiseの結果が出るまで待つ。
+
+```ts
+const sleep = (duratioin: number) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, duration)
+  });
+};
+
+async function get3() {
+  await sleep(1000);
+  return 3;
+}
+
+const p = get3();
+p.then(num => {
+  console.log(`num is ${num}`);
+});
+```
 
 ---
 
