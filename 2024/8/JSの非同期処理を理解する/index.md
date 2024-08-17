@@ -210,6 +210,7 @@ async function get3(): Promise<number> {
 async function get3() {
   // Promiseの解決を待つ
   await sleep(1000);
+  await sleep(2000);
   return 3;
 }
 ```
