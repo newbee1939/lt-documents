@@ -88,7 +88,7 @@ _footer: ""
 ```ts
 readFile('hoge.txt', (data) => {
   // 非同期処理が完了したときに呼び出される
-  console.log('読み込み完了！');
+  console.log(`読み込み完了！: ${data}`);
 });
 ```
 
@@ -103,8 +103,6 @@ readFile('hoge.txt', (data) => {
 ---
 
 ```ts
-import { readFile } from "fs/promises";
-
 // 1. 非同期関数からPromiseを受け取る
 // pの型はPromise<string>
 const p = readFile("foo.txt", "utf8");
@@ -122,10 +120,10 @@ p.then((data) => {
 ## コールバック関数からの変化
 
 - 従来は「非同期処理を行う関数にコールバック関数を直接渡す」というひとまとまりの処理だった
--　2つに分離された
+- 2つに分離された
   1. 非同期処理を行う関数はPromiseオブジェクトを返す
   2. 返されたPromiseオブジェクトにthenでコールバック関数を渡す
-- より抽象的・統一的に非同期処理を表すことができる
+- より抽象的・統一的に非同期処理を表すことができるように
 
 ---
 
@@ -135,7 +133,7 @@ p.then((data) => {
 
 ---
 
-PromiseベースのAPIでは非同期処理を行う関数ならどんな関数でも「Promiseオブジェクトを返す」という点で共通している
+PromiseベースのAPIでは非同期処理を行う関数ならどんな関数でも「Promiseを返す」という点で共通している
 
 ![w:800 center drop-shadow](6.png)
 
@@ -179,9 +177,16 @@ Promise.race([promise1, promise2]).then((value) => {
 
 ## async/await構文
 
-Promiseをベースとした非同期関数を扱うための便利な機能
+- Promiseをベースとした非同期関数を扱うための便利な機能
+- thenよりもasync/awaitの方がよく使う
 
-thenよりもasync/awaitの方がよく使う。
+---
+
+## async関数
+
+- async関数の返り値は必ずPromiseになる
+- async関数内部でreturn文が実行された場合、return文で返された値が、返り値のPromiseの結果となる
+  - async関数内でreturn文が実行された時点で、return文に渡された値を結果として、返り値のPromiseが成功裡に解決される
 
 ```ts
 async function get3(): Promise<number> {
@@ -189,16 +194,13 @@ async function get3(): Promise<number> {
 }
 ```
 
-async関数の返り値は必ずPromiseになる。
-async関数内部でreturn文が実行された場合、return文で返された値が、返り値のPromiseの結果となる。（async関数内でreturn文が実行された時点で、return文に渡された値を結果として、返り値のPromiseが成功裡に解決される）
+---
 
-await式はasync関数の中で使える構文。
+## await式
 
-`await 式`という形式を取る。
-普通awaitに与える式はPromiseオブジェクト。
-与えられたPromiseの結果が出るまで待つ。
-
-awaitを使うとasync関数の実行が一時中断する。ただし、一時中断といってもこれはブロッキングではない。つまり、awaitによる一時中断はあくまでasync関数が中断しただけであり、中断の間に他の処理が行われる可能性がある。特に、async関数が呼び出された直後のawaitの場合、同期的なプログラムの実行が呼び出し元に戻る。
+- await式はasync関数の中で使える構文
+- `await 式(Promiseオブジェクト)`という形式を取る
+- 与えられたPromiseの結果が出るまで待つ
 
 ```ts
 const sleep = (duratioin: number) => {
@@ -217,6 +219,8 @@ p.then(num => {
   console.log(`num is ${num}`);
 });
 ```
+
+awaitを使うとasync関数の実行が一時中断する。ただし、一時中断といってもこれはブロッキングではない。つまり、awaitによる一時中断はあくまでasync関数が中断しただけであり、中断の間に他の処理が行われる可能性がある。特に、async関数が呼び出された直後のawaitの場合、同期的なプログラムの実行が呼び出し元に戻る。
 
 awaitの返り値。
 式として与えられたPromiseの結果。
