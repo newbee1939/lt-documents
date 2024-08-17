@@ -185,10 +185,10 @@ Promise.race([promise1, promise2]).then((value) => {
 ## async関数
 
 - async関数の返り値は必ずPromiseになる
-- async関数内部でreturn文が実行された場合、return文で返された値が、返り値のPromiseの結果となる
-  - async関数内でreturn文が実行された時点で、return文に渡された値を結果として、返り値のPromiseが成功裡に解決される
+- async関数内部でreturn文が実行された場合、return文で返された値が返り値のPromiseの結果となる
 
 ```ts
+// Promiseオブジェクトを返す
 async function get3(): Promise<number> {
   return 3;
 }
@@ -201,6 +201,7 @@ async function get3(): Promise<number> {
 - await式はasync関数の中で使える構文
 - `await 式(Promiseオブジェクト)`という形式を取る
 - 与えられたPromiseの結果が出るまで待つ
+  - thenの代わりに使用することが多い
 
 ```ts
 const sleep = (duratioin: number) => {
@@ -208,27 +209,12 @@ const sleep = (duratioin: number) => {
     setTimeout(resolve, duration)
   });
 };
-
 async function get3() {
+  // Promiseの解決を待つ
   await sleep(1000);
   return 3;
 }
-
-const p = get3();
-p.then(num => {
-  console.log(`num is ${num}`);
-});
 ```
-
-awaitを使うとasync関数の実行が一時中断する。ただし、一時中断といってもこれはブロッキングではない。つまり、awaitによる一時中断はあくまでasync関数が中断しただけであり、中断の間に他の処理が行われる可能性がある。特に、async関数が呼び出された直後のawaitの場合、同期的なプログラムの実行が呼び出し元に戻る。
-
-awaitの返り値。
-式として与えられたPromiseの結果。
-
-Promiseの結果は本来thenメソッドで得るものですが、async関数の中ではこのようにawait式を使うことでPromiseの結果を得ることができる。
-awaitが「Promiseを待つ」という働きを持ちthenの代わりとなっているため。
-
-await式を使うと「ある非同期処理が終わってから次の非同期処理をする」というプログラムをまるで同期プログラムのように（上から下に進むという流れに則った形で）書くことができる
 
 --- 
 
@@ -236,18 +222,6 @@ await式を使うと「ある非同期処理が終わってから次の非同期
 
 - readFile(...).then(...)のようにthenを使うよりも記述がシンプルになる
 - 「ある非同期処理が終わってから次の非同期処理をする」というプログラムをまるで同期プログラムのように（上から下に進むという流れに則った形で）書くことができる
-
----
-
-## なぜawaitはasyncの中でしか使えないのか？
-
-- ブロッキングせずに「待つ」という挙動を実現するには返り値をPromiseにすることが必要であり、そのためには返り値がPromiseであると保証されているasyncの関数の中である必要があるから
-
----
-
-## 参考書籍
-
-- 
 
 ---
 
