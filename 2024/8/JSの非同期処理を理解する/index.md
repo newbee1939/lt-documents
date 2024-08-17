@@ -26,6 +26,7 @@ style: |
 # プレゼンのスライド
 # コピーライティングの本
 # https://www.engilaboo.com/promise-async-await/
+# awaitがasyncの中でしか使用できない理由
 ---
 
 <!--
