@@ -102,9 +102,10 @@ console.log('3. 読み込み開始');
 ## Promise
 
 - ES2015で追加された非同期処理のための機能
+- 非同期処理そのものを表すオブジェクト
 - Promiseを使うことで、より便利かつ分かりやすい形で非同意処理を扱うことができる
 - 非同期処理においては「終わったあとに何をするか」を表す関数が不可欠
-- コールバック関数ベースの非同期処理の場合は非同期処理を開始する関数（e.g. setTimeout, readFile）に直接これをコールバック関数として私ていた
+- コールバック関数ベースの非同期処理の場合は非同期処理を開始する関数（e.g. setTimeout, readFile）に直接これをコールバック関数として渡していた
 - 非同期処理を行う関数はPromiseオブジェクトを返す
 - Promiseオブジェクトに対して、thenメソッドで終わった後に行う処理を表す関数を登録する
 - 関数は、当該Promiseが表す非同期処理が完了した時点で呼び出される
@@ -112,7 +113,7 @@ console.log('3. 読み込み開始');
 ```ts
 import { readFile } from "fs/promises";
 
-// pの型はPromise<string>
+// pの型はPromise<string>。非同期関数がPromiseを返す
 const p = readFile("foo.txt", "utf8");
 
 p.then((data) => {
@@ -133,9 +134,29 @@ p.then((data) => {
 
 ## Promiseの動作の流れを図解
 
+```ts
+import { readFile } from "fs/promises";
+
+// 1. 非同期関数からPromiseを受け取る
+// pの型はPromise<string>。非同期関数がPromiseを返す
+const p = readFile("foo.txt", "utf8");
+
+// 2. 非同期処理が完了したら非同期関数がPromiseに対して結果を登録する
+p.then((data) => {
+  // 非同期処理が完了したときに呼び出される
+  console.log(data);
+})
+```
+
+
 ---
 
 ## Promiseのメリット
+
+- コールバック関数を直接渡す方式の場合、使いたいAPIごとにコールバック関数をどのように渡せばいいかを調べる必要がある
+- PromiseベースのAPIでは非同期処理を行う関数ならどんな関数でも「PromiseおBっジェクトを返す」という点で共通しており、結果も「Promiseの解決」という共通の機構をと通して伝えられる
+- これにより、利用する側はPromiseの使い方さえ覚えていれば非同期処理の結果を無事に受け取ることができる
+- Promiseオブジェクトのthenに渡すコールバック関数は常に1引数であり、どんな非同期処理であろうと共通
 
 ---
 
