@@ -27,6 +27,8 @@ style: |
 # コピーライティングの本
 # https://www.engilaboo.com/promise-async-await/
 # awaitがasyncの中でしか使用できない理由
+# 完全にJSの非同期関数を腹落ちする
+# なるべく深い知識を話す
 ---
 
 <!--
