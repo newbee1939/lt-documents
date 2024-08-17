@@ -204,11 +204,6 @@ async function get3(): Promise<number> {
   - thenの代わりに使用することが多い
 
 ```ts
-const sleep = (duratioin: number) => {
-  return new Promise<void>((resolve) => {
-    setTimeout(resolve, duration)
-  });
-};
 async function get3() {
   // Promiseの解決を待つ
   await sleep(1000);
@@ -221,7 +216,16 @@ async function get3() {
 ## async/awaitのメリット
 
 - readFile(...).then(...)のようにthenを使うよりも記述がシンプルになる
-- 「ある非同期処理が終わってから次の非同期処理をする」というプログラムをまるで同期プログラムのように（上から下に進むという流れに則った形で）書くことができる
+- 「ある非同期処理が終わってから次の非同期処理をする」というプログラムをまるで同期プログラムのように書くことができる
+
+---
+
+## まとめ
+
+- JSで非同期関数を表現する方法
+  - コールバック関数
+  - Promise
+- asycn/awaitを使うことで、よりPromiseを簡単に扱うことができる
 
 ---
 
