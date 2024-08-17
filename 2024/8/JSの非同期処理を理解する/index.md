@@ -216,6 +216,7 @@ async関数内部でreturn文が実行された場合、return文で返された
 await式はasync関数の中で使える構文。
 
 `await 式`という形式を取る。
+普通awaitに与える式はPromiseオブジェクト。
 与えられたPromiseの結果が出るまで待つ。
 
 ```ts
@@ -235,6 +236,18 @@ p.then(num => {
   console.log(`num is ${num}`);
 });
 ```
+
+awaitの返り値。
+式として与えられたPromiseの結果。
+
+Promiseの結果は本来thenメソッドで得るものですが、async関数の中ではこのようにawait式を使うことでPromiseの結果を得ることができる。
+awaitが「Promiseを待つ」という働きを持ちthenの代わりとなっているため。
+
+await式を使うと「ある非同期処理が終わってから次の非同期処理をする」というプログラムをまるで同期プログラムのように（上から下に進むという流れに則った形で）書くことができる
+
+---
+
+## なぜawaitはasyncの中でしか使えないのか？
 
 ---
 
