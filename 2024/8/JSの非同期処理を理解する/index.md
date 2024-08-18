@@ -350,6 +350,12 @@ countdown();
 
 ---
 
+## 今後やりたいこと
+
+- JavaScriptはシングルスレッドでどのように非同期処理を実現しているのか
+
+---
+
 <!--
 backgroundColor: black
 footer: ""
