@@ -29,6 +29,9 @@ style: |
 # awaitがasyncの中でしか使用できない理由
 # 完全にJSの非同期関数を腹落ちする
 # なるべく深い知識を話す
+# 誰もが腹落ちで理解できる完璧な資料にする
+# JavaScriptはシングルスレッドでどのように非同期処理を実現しているのか？このテーマでも記事を書けそう
+  # https://www.youtube.com/watch?v=hfoxoVo0cVo
 ---
 
 <!--
@@ -46,6 +49,7 @@ _footer: ""
 
 - 裏（バックグラウンド）で行われる処理
   - e.g. 通信、ファイルの読み書き、DBへのアクセスなどの時間がかかる処理
+- 並行して処理を次々に実行するための仕組み
 
 ---
 
@@ -171,6 +175,9 @@ p.then((data) => {
 
 ## コールバック地獄の改善
 
+ネストが消えてフラットに。
+だが、thenで繋げていくのはまだ見づらい。そこでこの後async/awaitが生まれる。
+
 ```ts
 new Promise<void>((resolve) => {
   setTimeout(() => {
@@ -269,6 +276,7 @@ Promise.race([promise1, promise2]).then((value) => {
 ## async/await構文
 
 - Promiseをベースとした非同期関数を扱うための便利な機能
+- Async/await（エイシンク/アウェイト）は、Promiseのシンタックスシュガー（syntax sugar・糖衣構文）
 - thenよりもasync/awaitの方がよく使う
 
 ---
@@ -309,6 +317,25 @@ async function get3() {
 
 - readFile(...).then(...)のようにthenを使うよりも記述がシンプルになる
 - 「ある非同期処理が終わってから次の非同期処理をする」というプログラムをまるで同期プログラムのように書くことができる
+
+---
+
+## thenよりシンプルな記述に
+
+```ts
+function delay() {
+  return new Promise((resolve) => setTimeout(resolve, 1000));
+}
+async function countdown() {
+  await delay();
+  console.log(3);
+  await delay();
+  console.log(2);
+  await delay();
+  console.log(1);
+}
+countdown();
+```
 
 ---
 
