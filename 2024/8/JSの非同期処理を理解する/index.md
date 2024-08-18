@@ -107,6 +107,8 @@ readFile('hoge.txt', (data) => {
 
 ## コールバック地獄
 
+ネストが深くて可読性が悪い。
+
 ```ts
 // 3 -> 2 -> 1 と表示される
 setTimeout(() => {
@@ -133,6 +135,9 @@ setTimeout(() => {
 
 - ES2015で追加された非同期処理のための機能
 - 非同期処理の状態や結果を表現するビルトインオブジェクト
+- 「後で値を返すから待っててね」という約束
+- 連続した非同期処理をフラットに書ける
+- 状態を持つ
 - 非同期処理を行う関数はPromiseオブジェクトを返す
 - Promiseオブジェクトに対して、thenメソッドで終わった後に行う処理を表す関数を登録する
 
@@ -165,6 +170,33 @@ p.then((data) => {
 ---
 
 ## コールバック地獄の改善
+
+```ts
+new Promise<void>((resolve) => {
+  setTimeout(() => {
+    console.log(3);
+    resolve();
+  }, 1000);
+})
+  .then(
+    () =>
+      new Promise<void>((resolve) => {
+        setTimeout(() => {
+          console.log(2);
+          resolve();
+        }, 1000);
+      }),
+  )
+  .then(
+    () =>
+      new Promise<void>((resolve) => {
+        setTimeout(() => {
+          console.log(1);
+          resolve();
+        }, 1000);
+      }),
+  );
+```
 
 ---
 
