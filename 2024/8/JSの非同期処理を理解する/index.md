@@ -247,7 +247,7 @@ async function get3(): Promise<number> {
 - await式はasync関数の中で使える構文
 - `await 式(Promiseオブジェクト)`という形式を取る
 - 与えられたPromiseの結果が出るまで待つ
-  - thenの代わりに使用することが多い
+  - thenの代わりに使用できる
 
 ```ts
 async function get3() {
@@ -298,9 +298,9 @@ countdown();
 
 ## 今後やりたいこと
 
+- 非同期処理のより深い部分を調べてみる
 - JavaScriptはシングルスレッドでどのように非同期処理を実現しているのか
   - イベントループとかその辺りの話
-- より深い部分
 
 ---
 
