@@ -14,6 +14,7 @@ style: |
   h2 strong,b {
     color: red;
   }
+paginate: true
 ---
 
 <!--
