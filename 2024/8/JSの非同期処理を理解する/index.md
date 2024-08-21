@@ -235,8 +235,8 @@ Promiseの使い方さえ覚えていれば非同期処理の結果を受け取�
 
 ```ts
 // Promiseオブジェクトを返す
-async function get3(): Promise<number> {
-  return 3;
+async function get(): Promise<number> {
+  return 10;
 }
 ```
 
@@ -250,11 +250,11 @@ async function get3(): Promise<number> {
   - thenの代わりに使用できる
 
 ```ts
-async function get3() {
+async function get() {
   // Promiseの解決を待つ
   await sleep(1000);
   await sleep(2000);
-  return 3;
+  return 10;
 }
 ```
 
