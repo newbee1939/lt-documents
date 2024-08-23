@@ -241,7 +241,7 @@ async function get(): Promise<number> {
 ## await式
 
 - `await 式`という形式を取る
-- 与えられたPromiseの結果が出るまで待つ
+- 与えられたPromiseの結果が出るまで待つ（async関数を中断して他の処理を動かす）
   - thenの代わりに使用できる
 
 ```ts
