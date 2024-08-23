@@ -51,6 +51,8 @@ _footer: ""
 
 ## シングルスレッドかつブロッキング（同期）
 
+<!-- 外部との通信処理がある場合に、それぞれの完了を完全に待ってから次の処理が始まる -->
+
 ![w:940 center drop-shadow](2.jpg)
 
 ---
@@ -238,7 +240,7 @@ async function get(): Promise<number> {
 
 ---
 
-## await式
+## await
 
 - `await 式`という形式を取る
 - 与えられたPromiseの結果が出るまで待つ（async関数を中断して他の処理を動かす）
