@@ -27,3 +27,5 @@ _paginate: false
 テスト
 
 ---
+
+統計の勉強
