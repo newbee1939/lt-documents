@@ -31,11 +31,11 @@ _paginate: false
 
 ---
 
-# 先週 JPRS がある記事を発表した
+# 先週 JPRS が「サービス終了後に残っているDNS設定を利用したサブドメインの乗っ取りについて」という記事を発表した
 
 ![w:600 center](a.png)
 
-[サービス終了後に残っているDNS設定を利用したサブドメインの乗っ取りについて](https://jprs.jp/tech/security/2025-01-21-danglingrecords.html)
+https://jprs.jp/tech/security/2025-01-21-danglingrecords.html
 
 ---
 
@@ -56,7 +56,7 @@ _paginate: false
 # dangling records（ダングリングレコード）
 
 - 指定された名前の実体が無効になっているDNSレコード
-- e.g. CNAMEリソースレコードの指定先にWebサーバーが存在しない
+- e.g. CNAMEレコードの指定先にWebサーバーが存在しない, Aレコードの指定先にWebサーバーが存在しない
 
 ---
 
