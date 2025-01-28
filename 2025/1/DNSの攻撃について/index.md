@@ -30,6 +30,8 @@ _paginate: false
 
 # 最近勉強したこと
 
+## 2025/1/29
+
 ---
 
 # 先週 JPRS がある記事を発表した
@@ -71,7 +73,7 @@ https://jprs.jp/tech/security/2025-01-21-danglingrecords.html
 
 <br>
 
-campaign.example.jp にリクエストが来たら cdn.example.net の CDN にリクエストを流す
+campaign.example.jp にリクエストが来たら cdn.example.net の CDN にリクエストを流すサービス
 
 ---
 
@@ -103,11 +105,11 @@ campaign.example.jp が悪意のあるサイトに成り代わってしまう
 
 # まとめ
 
-- dangling records（ダングリングレコード）
+- **dangling records（ダングリングレコード）**
   - 指定された名前の実体が無効になっているリソースレコード
-- サブドメインテイクオーバー
+- **サブドメインテイクオーバー**
   - ドメインの管理権限を持たない第三者が、そのサブドメインの乗っ取りを図る攻撃手法
-- 不要になったレコードはすぐに忘れずに消すのが大切
+- **不要になったレコードは忘れずに消す**のが大切
 
 ---
 
