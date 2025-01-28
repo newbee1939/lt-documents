@@ -111,14 +111,14 @@ campaign.example.jp が悪意のあるサイトに成り代わってしまう
   - ドメインの管理権限を持たない第三者が、そのサブドメインの乗っ取りを図る攻撃手法
 - **不要になったレコードは忘れずに消す**のが大切
 
----
+<!-- ---
 
 # 参考資料
 
 - [dangling records（ダングリングレコード）](https://jprs.jp/glossary/index.php?ID=0274)
 - [Subdomain Takeover（サブドメインテイクオーバー）](https://jprs.jp/glossary/index.php?ID=0267)
 - [NS Takeover（エヌエステイクオーバー）](https://jprs.jp/glossary/index.php?ID=0272)
-- [終わった Web サイトの DNS 設定、そのままになっていませんか？](https://jprs.jp/tech/security/2025-01-21-danglingrecords.pdf)
+- [終わった Web サイトの DNS 設定、そのままになっていませんか？](https://jprs.jp/tech/security/2025-01-21-danglingrecords.pdf) -->
 
 ---
 
