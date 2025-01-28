@@ -22,7 +22,8 @@ style: |
 ---
 
 <!--
-_class: lead
+_class:
+  - lead
 _footer: ""
 _paginate: false
 -->
@@ -31,9 +32,9 @@ _paginate: false
 
 ---
 
-# 先週 JPRS が「サービス終了後に残っているDNS設定を利用したサブドメインの乗っ取りについて」という記事を発表した
+# 先週 JPRS がある記事を発表した
 
-![w:600 center](a.png)
+![w:1040 center](a.png)
 
 https://jprs.jp/tech/security/2025-01-21-danglingrecords.html
 
@@ -42,55 +43,71 @@ https://jprs.jp/tech/security/2025-01-21-danglingrecords.html
 # 記事の内容(要約)
 
 - ダングリングレコードがあると、サブドメインテイクオーバーの被害に遭う可能性がある
-- これらの被害に遭わないためにも、不要になったレコードは忘れずに削除するのが重要
+- これらの被害に遭わないためにも、不要になったレコードは忘れずに削除することが重要
 
 ---
 
 # いくつか知らない単語があったので調べてみた
 
 - **ダングリングレコード**があると、**サブドメインテイクオーバー**の被害に遭う可能性がある
-- これらの被害に遭わないためにも、不要になったレコードは忘れずに削除するのが重要
+- これらの被害に遭わないためにも、不要になったレコードは忘れずに削除することが重要
 
 ---
 
 # dangling records（ダングリングレコード）
 
-- 指定された名前の実体が無効になっているDNSレコード
-- e.g. CNAMEレコードの指定先にWebサーバーが存在しない, Aレコードの指定先にWebサーバーが存在しない
+- 指定された名前の実体が無効になっている DNS レコード
+- e.g. CNAME レコードの指定先に CDN が存在しない, A レコードの指定先に Web サーバーが存在しない
 
 ---
-
-<!--
-_class:
-  - lead
-  - invert
-_footer: ""
--->
 
 # サブドメインテイクオーバー
 
----
-
-![w:600 center](b.png)
+- ドメインの管理権限を持たない第三者が、そのサブドメインの乗っ取りを図る攻撃手法
 
 ---
 
-![w:600 center](c.png)
+![w:1200 center](b.png)
+
+<br>
+
+campaign.example.jp にリクエストが来たら cdn.example.net の CDN にリクエストを流す
 
 ---
 
-![w:600 center](d.png)
+![w:1200 center](c.png)
 
+<br>
+
+CDN サービスを解約
+
+---
+
+![w:1200 center](d.png)
+
+<br>
+
+第三者が CDN を契約して cdn.example.net のサーバー設定を追加
+
+campaign.example.jp が悪意のあるサイトに成り代わってしまう
+
+---
+
+![w:1200 center](d.png)
+
+<br>
+
+乗っ取られないためには不要になった DNS レコードは削除しておくことが重要
 
 ---
 
 # まとめ
 
 - dangling records（ダングリングレコード）
-    - 指定された名前の実体が無効になっているリソースレコード
+  - 指定された名前の実体が無効になっているリソースレコード
 - サブドメインテイクオーバー
-    - ドメインの管理権限を持たない第三者が、そのサブドメインの乗っ取りを図る攻撃手法
-- 不要になったレコードは忘れずに消すのが大事
+  - ドメインの管理権限を持たない第三者が、そのサブドメインの乗っ取りを図る攻撃手法
+- 不要になったレコードはすぐに忘れずに消すのが大切
 
 ---
 
@@ -99,7 +116,7 @@ _footer: ""
 - [dangling records（ダングリングレコード）](https://jprs.jp/glossary/index.php?ID=0274)
 - [Subdomain Takeover（サブドメインテイクオーバー）](https://jprs.jp/glossary/index.php?ID=0267)
 - [NS Takeover（エヌエステイクオーバー）](https://jprs.jp/glossary/index.php?ID=0272)
-- [終わったWebサイトのDNS設定、そのままになっていませんか？](https://jprs.jp/tech/security/2025-01-21-danglingrecords.pdf)
+- [終わった Web サイトの DNS 設定、そのままになっていませんか？](https://jprs.jp/tech/security/2025-01-21-danglingrecords.pdf)
 
 ---
 
