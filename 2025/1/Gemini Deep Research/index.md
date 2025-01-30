@@ -23,6 +23,8 @@ _paginate: false
 
 # Gemini Deep Research が便利すぎる
 
+## 2025/1/31
+
 ---
 
 # Gemini とは？🤖
