@@ -13,6 +13,12 @@ style: |
       display: block;
       margin: 0 auto;
   }
+    strong,b {
+    color: red;
+  }
+  h2 strong,b {
+    color: red;
+  }
 ---
 
 <!--
@@ -21,7 +27,7 @@ _footer: ""
 _paginate: false
 -->
 
-# Gemini Deep Research が便利すぎる
+# Gemini Deep Research が便利すぎる！
 
 ## 2025/1/31
 
@@ -46,7 +52,7 @@ Google の生成 AI
 
 # 2025 年 1 月 15 日: 日本語にも対応
 
-![w:650 center](0.png)
+![w:660 center](0.png)
 
 https://blog.google/intl/ja-jp/company-news/technology/gemini-advanced-deep-research/
 
@@ -141,11 +147,11 @@ _class:
 
 ---
 
-## 多数のサイトを参照してくれる
+<!-- ## 多数のサイトを参照してくれる
 
-![w:950 center](10.png)
+![w:950 center](10.png) -->
 
----
+<!-- --- -->
 
 ## Google ドキュメントで開くことも可能
 
