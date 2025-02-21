@@ -74,6 +74,20 @@ _footer: ""
 _paginate: false
 -->
 
+# 祝杯🍻
+
+![w:350](kanpai.png)
+
+---
+
+<!--
+_class:
+    - lead
+    - invert
+_footer: ""
+_paginate: false
+-->
+
 # 大量のエラーが発生💥
 
 ![w:350](2.png)
