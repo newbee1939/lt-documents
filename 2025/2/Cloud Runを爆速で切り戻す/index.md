@@ -1,11 +1,39 @@
 ---
 marp: true
 theme: gaia
+class: invert
 size: 16:9
+
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
+_footer: ""
+_paginate: false
+-->
+
+# Cloud Run の切り戻しについて
+
+---
+
+<!--
+_class:
+    - lead
+    - invert
+_footer: ""
+_paginate: false
+-->
+
+# 突然ですが
+
+---
+
+<!--
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
@@ -15,84 +43,102 @@ _paginate: false
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
 
-# 新機能をリリース
+# 新機能をリリース🚀
 
-![](1.png)
+![w:350](1.png)
 
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
 
 # 大量のエラーが発生
 
-![](2.png)
+![w:350](2.png)
 
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
 
 # とりあえず切り戻したい..
 
-![](3.png)
+![w:350](3.png)
 
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
 
 # 作業工程が多い
 
+```
 1. 原因の特定
-2. コードの修正・revert
-3. 再度リリース
-    - build
-    - push
-    - deploy
+2. コードの修正 or revert
+3. PR 作成
+4. レビュー
+5. 再度リリース
+   - build
+   - push
+   - deploy
+```
 
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
 
 # 切り戻しに時間がかかる
 
-![](4.png)
+![w:350](4.png)
 
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
 
-# ユーザーにも多大な影響が..
+# ユーザーに多大な影響が...
 
-![](5.png)
+![w:350](5.png)
 
 ---
 
 <!--
-_class: lead
+_class:
+    - lead
+    - invert
 _footer: ""
 _paginate: false
 -->
@@ -103,30 +149,53 @@ _paginate: false
 
 # Cloud Run のリビジョンとは？
 
-テスト
+- Cloud Run のデプロイ履歴を保持する機能
+- 各デプロイで自動的に作成される
+- **トラフィックの振り分けも可能**
 
-![](me.png)
+![w:650](revision.png)
 
 ---
 
-# わざわざ build してデプロイし直さなくても、リビジョンを切り戻せば切り戻せる
+# トラフィックを以前のリビジョンに振り分けることで切り戻しが可能
 
-- とりあえず切り戻してからコードの修正は（ゆっくり）すればいい
+- コードの revert や再デプロイは不要
+- とりあえず切り戻してからコードの修正は焦らず実施
 
-コーヒーイラスト
+![](cof.png)
 
 ---
 
 # 切り戻し方法
 
 - コンソールから手動で実施
+    - 権限の付与が必要
+    - 操作ミスが生じる可能性
 - GitHub Actions から実施
+    - より素早くできる
+    - 操作ミスの心配もない
 
 ---
 
-# Actions のモジュールを作りました
+<!--
+_class:
+    - lead
+    - invert
+_footer: ""
+_paginate: false
+-->
+
+# リビジョンを切り戻す Actions のモジュールを作りました
 
 ---
+
+<!--
+_class:
+    - lead
+    - invert
+_footer: ""
+_paginate: false
+-->
 
 # デモをします
 
@@ -145,6 +214,10 @@ _paginate: false
 ---
 
 # タグ付きリビジョンとは？
+
+- リビジョンにタグを付けることができる機能
+
+![w:800](tag.png)
 
 ---
 
@@ -189,7 +262,15 @@ _paginate: false
 
 # 今後の方針
 
-- //
+- リビジョン管理の社内ベストプラクティスを確立
+  - 切り戻し手順のドキュメント化
+  - 切り戻し判断基準の明確化
+- GitHub Actions モジュールの継続的改善
+  - よりユーザーフレンドリーな UI
+  - エラーハンドリングの強化
+- モニタリングとの連携強化
+  - リビジョン切り替え時の影響を可視化
+  - 自動アラート設定の検討
 
 ---
 
