@@ -108,6 +108,7 @@ _paginate: false
 1. 原因箇所の特定
 2. コードの修正 or revert
 3. PR作成
+    - 自動テスト
 4. レビュー
 5. 再度リリース
    - image build
