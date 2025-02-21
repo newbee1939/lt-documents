@@ -153,7 +153,7 @@ _footer: ""
 _paginate: false
 -->
 
-# その悩み、Cloud Run の リビジョン を使うことで解決できます
+# その悩み、Cloud Run の リビジョン を使うことで解消できます
 
 ---
 
